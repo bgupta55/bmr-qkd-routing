@@ -1,0 +1,232 @@
+{
+ "tests": [
+  {
+   "test": "T0 benign",
+   "expected": "accept",
+   "accept_rate": 1.0,
+   "reasons": {
+    "accepted": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T1 inflate r (session digest)",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "session: signature/ledger-digest mismatch": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T1b inflate r + re-bind with forger key",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "session: signature/ledger-digest mismatch": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T2 stale certificate",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "stale": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T3 drop a hop",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "continuity": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T4 loop",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "simplicity": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T5 lower eps",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "session: signature/ledger-digest mismatch": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T6 reorder",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "continuity": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T7 DEGRADED in (T_i,now] (late-entry)",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "db: superseded by DEGRADED in (T_i, now]": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T7b DEGRADED in (T_i,now] (early-entry)",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "db: superseded by DEGRADED in (T_i, now]": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T8 re-signed by non-attestor",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "certificate signature": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T9 replay old ledger+session (old nonce)",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "session: nonce mismatch (replay)": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T10 session bound to another (s,d')",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "session: bound to another (s,d)": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T10b ledger of another request",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "session: bound to another (s,d)": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T11 entry swapped for another valid cert",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "session: signature/ledger-digest mismatch": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T11b substitute other valid path",
+   "expected": "reject",
+   "accept_rate": 0.0,
+   "reasons": {
+    "session: signature/ledger-digest mismatch": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T12 lying attestor, ledger-only",
+   "expected": "ACCEPT (documented limit)",
+   "accept_rate": 1.0,
+   "reasons": {
+    "accepted": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T12-DB lying attestor, DB has audit record",
+   "expected": "reject (DB cross-check)",
+   "accept_rate": 0.0,
+   "reasons": {
+    "db: record mismatch": 2000
+   },
+   "as_expected": true
+  }
+ ],
+ "n_per_test": 2000,
+ "timing_ed25519": {
+  "2": {
+   "total_us_mean": 461.8480160495202,
+   "total_us_sd": 42.63237087221236,
+   "total_us_median": 449.6875044424087,
+   "per_entry_us_mean": 230.9240080247601,
+   "per_entry_us_sd": 21.31618543610618
+  },
+  "4": {
+   "total_us_mean": 777.7678265822409,
+   "total_us_sd": 58.31491770780596,
+   "total_us_median": 757.0619927719235,
+   "per_entry_us_mean": 194.44195664556023,
+   "per_entry_us_sd": 14.57872942695149
+  },
+  "8": {
+   "total_us_mean": 1393.6847069095982,
+   "total_us_sd": 95.77304493971282,
+   "total_us_median": 1366.645999951288,
+   "per_entry_us_mean": 174.21058836369977,
+   "per_entry_us_sd": 11.971630617464102
+  },
+  "11": {
+   "total_us_mean": 1840.133559809805,
+   "total_us_sd": 111.51014442766427,
+   "total_us_median": 1816.7499947594479,
+   "per_entry_us_mean": 167.2848690736186,
+   "per_entry_us_sd": 10.137285857060387
+  }
+ },
+ "timing_hmac": {
+  "2": {
+   "total_us_mean": 8.099651524138734,
+   "total_us_sd": 2.3868512346523927,
+   "total_us_median": 7.875001756474376,
+   "per_entry_us_mean": 4.049825762069367,
+   "per_entry_us_sd": 1.1934256173261963
+  },
+  "4": {
+   "total_us_mean": 14.105963486583967,
+   "total_us_sd": 3.288131929127832,
+   "total_us_median": 13.791985111311078,
+   "per_entry_us_mean": 3.5264908716459917,
+   "per_entry_us_sd": 0.822032982281958
+  },
+  "8": {
+   "total_us_mean": 26.85765449784632,
+   "total_us_sd": 5.636719576543131,
+   "total_us_median": 26.04199107736349,
+   "per_entry_us_mean": 3.35720681223079,
+   "per_entry_us_sd": 0.7045899470678914
+  },
+  "11": {
+   "total_us_mean": 36.982691300840216,
+   "total_us_sd": 6.051036227898958,
+   "total_us_median": 35.959004890173674,
+   "per_entry_us_mean": 3.3620628455309283,
+   "per_entry_us_sd": 0.550094202536269
+  }
+ },
+ "library": "cryptography 50.0.1 (OpenSSL Ed25519)",
+ "machine": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+ "cpu": "arm",
+ "python": "3.14.5",
+ "note": "per-entry timing includes the one session-binding verification amortised over m entries"
+}

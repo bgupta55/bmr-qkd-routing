@@ -1,0 +1,54 @@
+{
+  "experiment": "E3",
+  "description": "Certificate unit tests (Reviewer 2 Comment 4)",
+  "tests": [
+    {
+      "name": "test_h_endpoints",
+      "passed": true,
+      "ms": 0.004542001988738775
+    },
+    {
+      "name": "test_golden_h",
+      "passed": true,
+      "ms": 0.0024579931050539017
+    },
+    {
+      "name": "test_eta_monotone",
+      "passed": true,
+      "ms": 0.002541986759752035
+    },
+    {
+      "name": "test_degraded_when_n_too_small",
+      "passed": true,
+      "ms": 0.000667001586407423
+    },
+    {
+      "name": "test_golden_certificate",
+      "passed": true,
+      "ms": 0.006458954885601997
+    },
+    {
+      "name": "test_public_xor_gamma_small",
+      "passed": true,
+      "ms": 0.0036660348996520042
+    },
+    {
+      "name": "test_invariants",
+      "passed": true,
+      "ms": 0.003834022209048271
+    },
+    {
+      "name": "test_five_fields (Comment 4)",
+      "passed": true,
+      "ms": 0.008167000487446785
+    },
+    {
+      "name": "test_integration_one_link_epoch",
+      "passed": true,
+      "ms": 0.0038750004023313522
+    }
+  ],
+  "passed": 9,
+  "total": 9,
+  "all_passed": true
+}

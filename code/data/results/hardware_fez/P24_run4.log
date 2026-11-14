@@ -1,0 +1,31 @@
+job db7cq96il99s73fnr82g 0 False
+  rep0 native S=2.5208 se=0.0172
+job db7cqd6il99s73fnr8dg 0 True
+  rep0 degraded S=2.3335 se=0.0171
+job db7cqkuil99s73fnr8v0 1 False
+  rep1 native S=2.5083 se=0.0172
+job db7cqp2raffc73fa92j0 1 True
+  rep1 degraded S=2.3210 se=0.0171
+job db7cqt8r1c5c738k8v10 2 False
+  rep2 native S=2.5134 se=0.0172
+job db7cr1ur6oqs73879ju0 2 True
+  rep2 degraded S=2.3167 se=0.0172
+job db7cr66il99s73fnra20 3 False
+  rep3 native S=2.4719 se=0.0174
+job db7cra6il99s73fnrab0 3 True
+  rep3 degraded S=2.2969 se=0.0172
+{
+ "native": {
+  "n": 4,
+  "mean": 2.50360107421875,
+  "sd_between": 0.021727486918239936,
+  "se_pooled": 0.008615204917308236
+ },
+ "degraded": {
+  "n": 4,
+  "mean": 2.3170166015625,
+  "sd_between": 0.01520547326076174,
+  "se_pooled": 0.008581691260518278
+ },
+ "delta_mean_deg_minus_nat": -0.18658447265625
+}

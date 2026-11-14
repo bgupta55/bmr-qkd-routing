@@ -1,0 +1,82 @@
+{
+ "db7cpnqraffc73fa9080": {
+  "backend": "ibm_fez",
+  "created": "2026-10-14 05:59:19.881395+05:30",
+  "used_qubits": [
+   0,
+   1
+  ]
+ },
+ "db7cpruil99s73fnr77g": {
+  "backend": "ibm_fez",
+  "created": "2026-10-14 05:59:35.535535+05:30",
+  "used_qubits": [
+   0,
+   1
+  ]
+ },
+ "db7cq96il99s73fnr82g": {
+  "backend": "ibm_fez",
+  "created": "2026-10-14 06:00:28.936872+05:30",
+  "used_qubits": [
+   0,
+   1
+  ]
+ },
+ "db7cqd6il99s73fnr8dg": {
+  "backend": "ibm_fez",
+  "created": "2026-10-14 06:00:44.845516+05:30",
+  "used_qubits": [
+   0,
+   1
+  ]
+ },
+ "db7cqkuil99s73fnr8v0": {
+  "backend": "ibm_fez",
+  "created": "2026-10-14 06:01:15.900442+05:30",
+  "used_qubits": [
+   0,
+   1
+  ]
+ },
+ "db7cqp2raffc73fa92j0": {
+  "backend": "ibm_fez",
+  "created": "2026-10-14 06:01:32.759496+05:30",
+  "used_qubits": [
+   0,
+   1
+  ]
+ },
+ "db7cqt8r1c5c738k8v10": {
+  "backend": "ibm_fez",
+  "created": "2026-10-14 06:01:50.053698+05:30",
+  "used_qubits": [
+   0,
+   1
+  ]
+ },
+ "db7cr1ur6oqs73879ju0": {
+  "backend": "ibm_fez",
+  "created": "2026-10-14 06:02:07.787697+05:30",
+  "used_qubits": [
+   0,
+   1
+  ]
+ },
+ "db7cr66il99s73fnra20": {
+  "backend": "ibm_fez",
+  "created": "2026-10-14 06:02:24.413400+05:30",
+  "used_qubits": [
+   0,
+   1
+  ]
+ },
+ "db7cra6il99s73fnrab0": {
+  "backend": "ibm_fez",
+  "created": "2026-10-14 06:02:40.438574+05:30",
+  "used_qubits": [
+   0,
+   1
+  ]
+ }
+}
