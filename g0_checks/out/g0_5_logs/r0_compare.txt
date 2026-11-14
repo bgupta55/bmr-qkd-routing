@@ -1,0 +1,19 @@
+q6_sweep numeric fields compared / differing / max abs diff: (28000, 0, 0) (486, 0, 0)
+E-A2 (Tables 8/12) numeric fields compared / differing / max abs diff: (18600, 0, 0)
+RR1 numeric fields compared / differing / max abs diff: (192, 0, 0)
+RR2: (120, 0, 0)
+RR5 (excluding timings): (5, 0, 0)
+RR4 (50-rep file, run_pending_fast does not rewrite it; skipped)
+
+| Quantity | Manuscript / stored | Rerun | Abs. diff |
+|---|---|---|---|
+| Table 16 BMR full compliance % (200 cells) | 92.766000 | 92.766000 | 0.0e+00 |
+| Table 15 B2 budget-only rate | 0.126323 | 0.126323 | 0.0e+00 |
+| BMR budget-only rate | 0.123527 | 0.123527 | 0.0e+00 |
+| BMR refusal % (200 cells) | 7.234000 | 7.234000 | 0.0e+00 |
+| SPF full compliance % | 46.170000 | 46.170000 | 0.0e+00 |
+| Table 15 BMR-B2 budget-only (-0.0028) | -0.002795 | -0.002795 | 0.0e+00 |
+| Table 8 true-secure BMR (S=2.62,n=1e4) | 0.218274 | 0.218274 | 0.0e+00 |
+| Table 8 true-secure BMR+alarm (S=2.62,n=1e4) | 0.218274 | 0.218274 | 0.0e+00 |
+| Table 8 true-secure BMR+alarm (S=2.55,n=1e4) | 0.212768 | 0.212768 | 0.0e+00 |
+| Table 8 true-secure BMR+alarm (S=2.48,n=1e4) | 0.212970 | 0.212970 | 0.0e+00 |

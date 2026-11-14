@@ -1,0 +1,11 @@
+{
+ "cases": 43,
+ "families": 53038,
+ "coalitions": 1941804,
+ "exposed": 581084,
+ "disagreements": 0,
+ "thmB_violations": 0,
+ "exposed_min_size": {},
+ "max_family_count": 1723,
+ "seconds": 6.7
+}

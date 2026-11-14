@@ -1,0 +1,40 @@
+{
+ "per_b": {
+  "2": {
+   "WC_I_K_tag_bits": 0.0,
+   "PH_I_K_tag_and_seed_bits": 1.5,
+   "PH_I_K_tag_given_fixed_r_nonzero_bits_min": 2.0,
+   "PH_I_K_tag_given_fixed_r_nonzero_bits_max": 2.0,
+   "PH_I_K_tag_given_r_zero_bits": 0.0,
+   "PH_avg_I_over_r_bits": 1.5,
+   "H_K_bits": 2,
+   "WC_best_forgery_probability_given_K_and_tag": 0.25,
+   "WC_forgery_expected_2_pow_minus_b": 0.25,
+   "PH_prob_recover_K_from_tag_r_nonzero": 1.0
+  },
+  "3": {
+   "WC_I_K_tag_bits": 0.0,
+   "PH_I_K_tag_and_seed_bits": 2.625,
+   "PH_I_K_tag_given_fixed_r_nonzero_bits_min": 3.0,
+   "PH_I_K_tag_given_fixed_r_nonzero_bits_max": 3.0,
+   "PH_I_K_tag_given_r_zero_bits": 0.0,
+   "PH_avg_I_over_r_bits": 2.625,
+   "H_K_bits": 3,
+   "WC_best_forgery_probability_given_K_and_tag": 0.125,
+   "WC_forgery_expected_2_pow_minus_b": 0.125,
+   "PH_prob_recover_K_from_tag_r_nonzero": 1.0
+  },
+  "4": {
+   "WC_I_K_tag_bits": 0.0,
+   "PH_I_K_tag_and_seed_bits": 3.75,
+   "PH_I_K_tag_given_fixed_r_nonzero_bits_min": 4.0,
+   "PH_I_K_tag_given_fixed_r_nonzero_bits_max": 4.0,
+   "PH_I_K_tag_given_r_zero_bits": 0.0,
+   "PH_avg_I_over_r_bits": 3.75,
+   "H_K_bits": 4,
+   "WC_best_forgery_probability_given_K_and_tag": 0.0625,
+   "WC_forgery_expected_2_pow_minus_b": 0.0625,
+   "PH_prob_recover_K_from_tag_r_nonzero": 1.0
+  }
+ }
+}

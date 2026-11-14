@@ -1,0 +1,7 @@
+{
+  "L": 3,
+  "b": 2,
+  "caseA_shared_r1r2_I_K_t_bits": 0.0,
+  "caseB_forwarded_r1r2_known_to_C_avg_I_K_t_bits": 1.640625,
+  "caseAprime_C_sees_share1_of_K_r1_r2_plus_tag_I_bits": 0.0
+}

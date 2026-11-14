@@ -1,0 +1,9 @@
+{
+ "seed": 20261113,
+ "repsA": 100,
+ "repsB": 100,
+ "parts": "AB",
+ "seconds": 170.7,
+ "python": "3.14.5",
+ "machine": "macOS-26.5.1-arm64-arm-64bit-Mach-O"
+}

@@ -1,0 +1,28 @@
+0/20000 (1s)
+2000/20000 (1s)
+4000/20000 (1s)
+6000/20000 (2s)
+8000/20000 (2s)
+10000/20000 (3s)
+12000/20000 (3s)
+14000/20000 (3s)
+16000/20000 (3s)
+18000/20000 (4s)
+X4 validation: 20000 instances, 5s, master seed 20261113, python 3.14.5, macOS-26.5.1-arm64-arm-64bit-Mach-O
+
+ t=1: instances 10000  feasible 5459 (54.6%)  mismatch(enum vs brute) 0  mismatch(ILP vs brute) 0  invalid plans enum 0 ilp 0  enum status!=ok 0  ilp status!=ok 0
+    cert    : n=5000 feasible=2697 mismatches enum/ilp = 0/0
+    uniform : n=5000 feasible=2762 mismatches enum/ilp = 0/0
+    aggregate filter @ R_MIN: exact-feasible 5459 (filter false-rejects 0); exact-infeasible 4541 (filter over-accepts 185 = 4.07%)
+    aggregate filter @ median-rate: exact-feasible 2835 (filter false-rejects 0); exact-infeasible 7165 (filter over-accepts 56 = 0.78%)
+
+ t=2: instances 10000  feasible 4173 (41.7%)  mismatch(enum vs brute) 0  mismatch(ILP vs brute) 0  invalid plans enum 0 ilp 0  enum status!=ok 0  ilp status!=ok 0
+    cert    : n=5000 feasible=2047 mismatches enum/ilp = 0/0
+    uniform : n=5000 feasible=2126 mismatches enum/ilp = 0/0
+    aggregate filter @ R_MIN: exact-feasible 4173 (filter false-rejects 0); exact-infeasible 5827 (filter over-accepts 111 = 1.90%)
+    aggregate filter @ median-rate: exact-feasible 2457 (filter false-rejects 0); exact-infeasible 7543 (filter over-accepts 9 = 0.12%)
+ N=5: n=4000 feasible=1850 mismatches 0/0
+ N=6: n=4000 feasible=1817 mismatches 0/0
+ N=7: n=4000 feasible=1857 mismatches 0/0
+ N=8: n=4000 feasible=2021 mismatches 0/0
+ N=9: n=4000 feasible=2087 mismatches 0/0

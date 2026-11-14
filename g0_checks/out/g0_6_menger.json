@@ -1,0 +1,40 @@
+{
+ "seed": 20261113,
+ "graphs": 5000,
+ "nonadjacent_pairs": 40000,
+ "nonadjacent_mismatches": 0,
+ "kappa_ne_maxflow": 0,
+ "kappa_ne_nu": 0,
+ "kappa_ne_bruteforce_cut": 0,
+ "kappa_ne_emin": 0,
+ "checker_disagreements": 0,
+ "kappa_histogram": {
+  "1": 8144,
+  "2": 16999,
+  "3": 9141,
+  "4": 3261,
+  "5": 1627,
+  "6": 638,
+  "7": 173,
+  "8": 17
+ },
+ "adjacent_pairs": 10000,
+ "adjacent_mismatches": 0,
+ "adjacent_with_extra_paths": 8686,
+ "adjacent_coalitions_checked": 137729,
+ "by_kind": {
+  "ER": {
+   "pairs": 16000,
+   "mismatches": 0
+  },
+  "BA": {
+   "pairs": 12000,
+   "mismatches": 0
+  },
+  "GRID": {
+   "pairs": 12000,
+   "mismatches": 0
+  }
+ },
+ "seconds": 11.5
+}

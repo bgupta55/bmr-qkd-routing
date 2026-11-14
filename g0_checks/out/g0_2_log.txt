@@ -1,0 +1,13 @@
+{'L': 1, 'm': 2, 'q': 2, 'starts': 400, 'best_R1': 1.0, 'best_R2': 1.0000000000000004, 'n_starts_R1_above_1': 0}
+{'L': 1, 'm': 3, 'q': 2, 'starts': 400, 'best_R1': 0.9999918083734601, 'best_R2': 1.0000000000000004, 'n_starts_R1_above_1': 0}
+{'L': 2, 'm': 2, 'q': 1, 'starts': 400, 'best_R1': 1.0000000000000002, 'best_R2': 1.1666208514702623, 'n_starts_R1_above_1': 0}
+{'L': 2, 'm': 2, 'q': 2, 'starts': 400, 'best_R1': 1.0000000000000004, 'best_R2': 1.166416465296971, 'n_starts_R1_above_1': 0}
+{'L': 2, 'm': 3, 'q': 1, 'starts': 400, 'best_R1': 0.9999137596180137, 'best_R2': 1.1665570047751679, 'n_starts_R1_above_1': 0}
+{'L': 2, 'm': 3, 'q': 2, 'starts': 400, 'best_R1': 0.999278114014386, 'best_R2': 1.1663614458778457, 'n_starts_R1_above_1': 0}
+{'L': 3, 'm': 2, 'q': 1, 'starts': 400, 'best_R1': 1.0000000000000002, 'best_R2': 1.213908266416956, 'n_starts_R1_above_1': 0}
+{'L': 3, 'm': 2, 'q': 2, 'starts': 400, 'best_R1': 0.999141014703296, 'best_R2': 1.2128762117090592, 'n_starts_R1_above_1': 0}
+{'L': 3, 'm': 3, 'q': 1, 'starts': 400, 'best_R1': 0.9992903460426844, 'best_R2': 1.213619570769084, 'n_starts_R1_above_1': 0}
+{'L': 1, 'starts': 80, 'best_R2': 1.0000000000000004, 'theory_2_1_minus_2_pow_minus_L': 1.0}
+{'L': 2, 'starts': 80, 'best_R2': 1.495921265760509, 'theory_2_1_minus_2_pow_minus_L': 1.5}
+{'L': 3, 'starts': 80, 'best_R2': 1.4180271295235196, 'theory_2_1_minus_2_pow_minus_L': 1.75}
+explicit [{'L': 1, 'ratio': 1.0, 'theory': 1.0}, {'L': 2, 'ratio': 1.5, 'theory': 1.5}, {'L': 3, 'ratio': 1.75, 'theory': 1.75}] identity err 1.1102230246251565e-16 secs 90.2

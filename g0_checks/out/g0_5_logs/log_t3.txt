@@ -1,0 +1,23 @@
+cells 200 graphs 10 per 100
+cell 10/200 (19s)
+cell 20/200 (33s)
+cell 30/200 (53s)
+cell 40/200 (79s)
+cell 50/200 (93s)
+cell 60/200 (114s)
+cell 70/200 (128s)
+cell 80/200 (140s)
+cell 90/200 (150s)
+cell 100/200 (166s)
+cell 110/200 (198s)
+cell 120/200 (216s)
+cell 130/200 (246s)
+cell 140/200 (272s)
+cell 150/200 (296s)
+cell 160/200 (329s)
+cell 170/200 (349s)
+cell 180/200 (366s)
+cell 190/200 (381s)
+cell 200/200 (430s)
+rows written 200000 439s
+done 200000 rows 486s
