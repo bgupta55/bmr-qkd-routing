@@ -1,0 +1,56 @@
+============================================================
+E4a: Corollary 1 — brute force verification
+============================================================
+  m= 1: min_coalition=inf  expected=inf  OK
+  m= 2: min_coalition=1  expected=1  OK
+  m= 3: min_coalition=2  expected=2  OK
+  m= 4: min_coalition=2  expected=2  OK
+  m= 5: min_coalition=3  expected=3  OK
+  m= 6: min_coalition=3  expected=3  OK
+  m= 7: min_coalition=4  expected=4  OK
+  m= 8: min_coalition=4  expected=4  OK
+  m= 9: min_coalition=5  expected=5  OK
+  m=10: min_coalition=5  expected=5  OK
+  m=11: min_coalition=6  expected=6  OK
+  m=12: min_coalition=6  expected=6  OK
+
+  Bouncing walk ['s','a','s','a','d']: min_coalition=1  expected=1  OK
+
+  All simple path assertions: PASS
+  Bouncing walk assertion: PASS
+
+  Conclusion: walks do NOT inherit the t-resistance bound.
+  Simple paths are required for Corollary 1 to hold.
+
+============================================================
+E4b: Walk solver vs simple path requirement
+============================================================
+ graph    n   t   K   found   non_simple    frac_ns   collViol
+-----------------------------------------------------------------
+    ER   10   1   3     196          105      0.536      0.158
+    ER   10   2   5     193          177      0.917      0.596
+    ER   10   3   7     195          194      0.995      0.708
+    BA   10   1   3     200          119      0.595      0.210
+    BA   10   2   5     200          190      0.950      0.535
+    BA   10   3   7     200          200      1.000      0.750
+    ER   20   1   3     200           64      0.320      0.100
+    ER   20   2   5     200          152      0.760      0.530
+    ER   20   3   7     200          193      0.965      0.815
+    BA   20   1   3     200           89      0.445      0.140
+    BA   20   2   5     200          173      0.865      0.635
+    BA   20   3   7     200          196      0.980      0.820
+    ER   30   1   3     100           37      0.370      0.170
+    ER   30   2   5     100           71      0.710      0.520
+    ER   30   3   7     100           99      0.990      0.880
+    BA   30   1   3     100           48      0.480      0.140
+    BA   30   2   5     100           84      0.840      0.520
+    BA   30   3   7     100           97      0.970      0.740
+    ER   50   1   3      50           15      0.300      0.140
+    ER   50   2   5      50           38      0.760      0.620
+    ER   50   3   7      50           48      0.960      0.840
+    BA   50   1   3      50           14      0.280      0.120
+    BA   50   2   5      50           40      0.800      0.540
+    BA   50   3   7      50           49      0.980      0.760
+
+Saved figure: <repo>/UPLOAD/experiments/../figures/E4_paths_corollary1.png
+Saved results: <repo>/UPLOAD/experiments/../data/results/e4_paths.json

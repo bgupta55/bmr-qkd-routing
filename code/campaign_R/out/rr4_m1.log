@@ -1,0 +1,27 @@
+=== RR4: Dynamic + BMR+alarm ===
+  ring  n=  500 S1=2.62: BMR_pre=0.0490 BMR+alarm_pre=0.0490 post1 BMR=0.0356 BMR+alarm=0.0356
+  ring  n=  500 S1=2.55: BMR_pre=0.0472 BMR+alarm_pre=0.0472 post1 BMR=0.0123 BMR+alarm=0.0123
+  ring  n=  500 S1=2.48: BMR_pre=0.0483 BMR+alarm_pre=0.0483 post1 BMR=0.0083 BMR+alarm=0.0083
+  ring  n=  500 S1=2.418: BMR_pre=0.0490 BMR+alarm_pre=0.0490 post1 BMR=0.0111 BMR+alarm=0.0111
+  ring  n=10000 S1=2.62: BMR_pre=0.3198 BMR+alarm_pre=0.3198 post1 BMR=0.2794 BMR+alarm=0.1568
+  ring  n=10000 S1=2.55: BMR_pre=0.3209 BMR+alarm_pre=0.3209 post1 BMR=0.2350 BMR+alarm=0.0453
+  ring  n=10000 S1=2.48: BMR_pre=0.3202 BMR+alarm_pre=0.3202 post1 BMR=0.0518 BMR+alarm=0.0191
+  ring  n=10000 S1=2.418: BMR_pre=0.3202 BMR+alarm_pre=0.3202 post1 BMR=0.0384 BMR+alarm=0.0384
+  grid  n=  500 S1=2.62: BMR_pre=0.0835 BMR+alarm_pre=0.0835 post1 BMR=0.0771 BMR+alarm=0.0771
+  grid  n=  500 S1=2.55: BMR_pre=0.0836 BMR+alarm_pre=0.0836 post1 BMR=0.0736 BMR+alarm=0.0736
+  grid  n=  500 S1=2.48: BMR_pre=0.0839 BMR+alarm_pre=0.0839 post1 BMR=0.0687 BMR+alarm=0.0687
+  grid  n=  500 S1=2.418: BMR_pre=0.0841 BMR+alarm_pre=0.0841 post1 BMR=0.0675 BMR+alarm=0.0675
+  grid  n=10000 S1=2.62: BMR_pre=0.3363 BMR+alarm_pre=0.3363 post1 BMR=0.3286 BMR+alarm=0.3281
+  grid  n=10000 S1=2.55: BMR_pre=0.3360 BMR+alarm_pre=0.3360 post1 BMR=0.3255 BMR+alarm=0.3163
+  grid  n=10000 S1=2.48: BMR_pre=0.3362 BMR+alarm_pre=0.3362 post1 BMR=0.3279 BMR+alarm=0.3241
+  grid  n=10000 S1=2.418: BMR_pre=0.3362 BMR+alarm_pre=0.3362 post1 BMR=0.3166 BMR+alarm=0.3166
+  ER    n=  500 S1=2.62: BMR_pre=0.0876 BMR+alarm_pre=0.0876 post1 BMR=0.0815 BMR+alarm=0.0815
+  ER    n=  500 S1=2.55: BMR_pre=0.0847 BMR+alarm_pre=0.0847 post1 BMR=0.0750 BMR+alarm=0.0750
+  ER    n=  500 S1=2.48: BMR_pre=0.0851 BMR+alarm_pre=0.0851 post1 BMR=0.0745 BMR+alarm=0.0745
+  ER    n=  500 S1=2.418: BMR_pre=0.0835 BMR+alarm_pre=0.0835 post1 BMR=0.0704 BMR+alarm=0.0704
+  ER    n=10000 S1=2.62: BMR_pre=0.3350 BMR+alarm_pre=0.3350 post1 BMR=0.3237 BMR+alarm=0.3079
+  ER    n=10000 S1=2.55: BMR_pre=0.3371 BMR+alarm_pre=0.3371 post1 BMR=0.3228 BMR+alarm=0.3003
+  ER    n=10000 S1=2.48: BMR_pre=0.3354 BMR+alarm_pre=0.3354 post1 BMR=0.3115 BMR+alarm=0.2991
+  ER    n=10000 S1=2.418: BMR_pre=0.3367 BMR+alarm_pre=0.3367 post1 BMR=0.3068 BMR+alarm=0.3068
+
+RR4 done (86.9s) -> RR4_dynamic_alarm.json

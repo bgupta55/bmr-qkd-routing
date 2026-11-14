@@ -1,0 +1,9 @@
+     n        link type | BMR accept%  B8 accept%  BMR rate|acc  B8 would-deliver rate
+   500           honest |      99.97%     100.00%        0.0912                 0.0896
+   500      depolarised |      23.02%       4.38%        0.0155                 0.0039
+   500  classical-mimic |       0.00%     100.00%        0.0000                 0.0896
+ 10000           honest |     100.00%     100.00%        0.3394                 0.3389
+ 10000      depolarised |     100.00%     100.00%        0.1396                 0.3389
+ 10000  classical-mimic |       0.00%     100.00%        0.0000                 0.3389
+[self-check] mimic: BMR rejects 100%, B8 accepts; honest: both accept; depolarised: BMR alarm-rate 77% @500, 0% @1e4 (reduced rate)
+saved <repo>/UPLOAD/experiments/../figures/Q5_evidence_source.png

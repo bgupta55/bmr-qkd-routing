@@ -1,0 +1,17 @@
+============================================================
+E3: Certificate Unit Tests
+============================================================
+  PASS  [0.00ms]  test_h_endpoints
+  PASS  [0.00ms]  test_golden_h
+  PASS  [0.00ms]  test_eta_monotone
+  PASS  [0.00ms]  test_degraded_when_n_too_small
+  PASS  [0.01ms]  test_golden_certificate
+  PASS  [0.00ms]  test_public_xor_gamma_small
+  PASS  [0.00ms]  test_invariants
+    Certificate fields: S_hat=2.687, n=2500, eta=0.2103, h=0.24900, H=2490.0, k=2465, r=0.24650, log2_eps=-13.48, log2_gamma=2451.5, delta=1e-06, T=5
+  PASS  [0.01ms]  test_five_fields (Comment 4)
+  PASS  [0.00ms]  test_integration_one_link_epoch
+
+============================================================
+E3 Summary: 9/9 tests passed
+Saved results: <repo>/UPLOAD/experiments/../data/results/e3_tests.json

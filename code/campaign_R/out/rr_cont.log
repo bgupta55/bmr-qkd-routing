@@ -1,0 +1,40 @@
+=== Derived ε bridge (n=10^4, phi=0.99) ===
+  S=2.720: r=0.3741, eps=1.025e-06, w=2.025e-06, gate=True
+  S=2.687: r=0.3390, eps=3.513e-06, w=4.513e-06, gate=True
+  S=2.640: r=0.2945, eps=1.667e-05, w=1.767e-05, gate=True
+  S=2.620: r=0.2772, eps=3.053e-05, w=3.153e-05, gate=True
+  S=2.550: r=0.2228, eps=2.047e-04, w=2.057e-04, gate=True
+  S=2.480: r=0.1760, eps=1.054e-03, w=1.055e-03, gate=True
+  S=2.418: r=0.1394, eps=3.800e-03, w=3.801e-03, gate=True
+
+=== RR1: Decomposition under (R) ===
+  er_N30_f020_Satt2.418_D1e-03                 : total=+0.0885 [budget=+0.0735, valid=+0.0004, obj=+0.0146] feasible=182/200
+  er_N30_f020_Satt2.418_D3e-05                 : total=+0.0809 [budget=+0.0707, valid=+0.0000, obj=+0.0103] feasible=174/200
+  er_N30_f020_Satt2.55_D1e-03                  : total=+0.0425 [budget=+0.0314, valid=-0.0032, obj=+0.0142] feasible=173/200
+  er_N30_f020_Satt2.55_D3e-05                  : total=+0.0249 [budget=+0.0160, valid=+0.0000, obj=+0.0089] feasible=165/200
+  er_N30_f020_Satt2.62_D1e-03                  : total=+0.0344 [budget=+0.0152, valid=+0.0021, obj=+0.0171] feasible=192/200
+  er_N30_f020_Satt2.62_D3e-05                  : total=+0.0165 [budget=+0.0034, valid=+0.0000, obj=+0.0131] feasible=174/200
+  ba_N30_f020_Satt2.418_D1e-03                 : total=+0.0788 [budget=+0.0692, valid=-0.0014, obj=+0.0109] feasible=186/200
+  ba_N30_f020_Satt2.418_D3e-05                 : total=+0.0666 [budget=+0.0575, valid=+0.0000, obj=+0.0091] feasible=172/200
+  ba_N30_f020_Satt2.55_D1e-03                  : total=+0.0328 [budget=+0.0331, valid=-0.0087, obj=+0.0084] feasible=179/200
+  ba_N30_f020_Satt2.55_D3e-05                  : total=+0.0181 [budget=+0.0091, valid=+0.0000, obj=+0.0091] feasible=172/200
+  ba_N30_f020_Satt2.62_D1e-03                  : total=+0.0293 [budget=+0.0185, valid=-0.0028, obj=+0.0135] feasible=196/200
+  ba_N30_f020_Satt2.62_D3e-05                  : total=+0.0083 [budget=-0.0008, valid=+0.0000, obj=+0.0091] feasible=181/200
+RR1 done (100.6s) -> RR1_decomposition_R_family.json
+
+=== RR2: Ring flagship S†=2.55 and S†=2.62 ===
+  ring8_Satt2.418_D1e-03: FA=0/0 alarm_det=500/500 ep25=500/500 mean_ep=25.0 gate_pass=1.000
+  ring8_Satt2.418_D3e-05: FA=0/1 alarm_det=500/500 ep25=500/500 mean_ep=25.0 gate_pass=1.000
+  ring8_Satt2.55_D1e-03: FA=0/0 alarm_det=500/500 ep25=500/500 mean_ep=25.0 gate_pass=1.000
+  ring8_Satt2.55_D3e-05: FA=0/1 alarm_det=500/500 ep25=500/500 mean_ep=25.0 gate_pass=1.000
+  ring8_Satt2.62_D1e-03: FA=0/0 alarm_det=500/500 ep25=201/500 mean_ep=26.512 gate_pass=1.000
+  ring8_Satt2.62_D3e-05: FA=1/0 alarm_det=500/500 ep25=208/500 mean_ep=26.372 gate_pass=1.000
+RR2 done (3.7s) -> RR2_ring_flagship_R_family.json
+
+=== RR5: Cross-validation Yen vs brute-force (5000 instances) ===
+  matches=4334, mismatches=0, truncated=0, infeasible_both=2143
+  Yen median 0.117 ms, p95 1.597 ms
+  BF  median 0.012 ms, p95 0.138 ms
+  -> Saved RR5_cross_validation.json
+
+All done. RR1=106.4s total. Results in /tmp/campR/cont

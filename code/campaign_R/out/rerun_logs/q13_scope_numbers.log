@@ -1,0 +1,6 @@
+n=   500  false-alarm 2.11e-02  miss 2.95e-02  Hoeffding bound 3.23e-01
+n=  2500  false-alarm 3.00e-06  miss 1.45e-05  Hoeffding bound 3.51e-03
+n= 10000  false-alarm 0.00e+00  miss 0.00e+00  Hoeffding bound 1.51e-10
+{'S': 2.687, 'Q_werner': 0.025, 'h_minent': 0.4723, 'H_AE_collective': 0.7077, 'h2_Q': 0.1687, 'r_DI_asymptotic': 0.539, 'h_minent_minus_h2Q': 0.3037}
+{'S': 2.55, 'Q_werner': 0.0492, 'h_minent': 0.3113, 'H_AE_collective': 0.5168, 'h2_Q': 0.2831, 'r_DI_asymptotic': 0.2338, 'h_minent_minus_h2Q': 0.0282}
+{'S': 2.418, 'Q_werner': 0.0726, 'h_minent': 0.2061, 'H_AE_collective': 0.3651, 'h2_Q': 0.3754, 'r_DI_asymptotic': -0.0103, 'h_minent_minus_h2Q': -0.1692}

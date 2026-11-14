@@ -1,0 +1,82 @@
+{
+ "db642islf4us73c4p8hg": {
+  "group": "native",
+  "backend": "ibm_fez",
+  "created": "2026-10-12 07:39:15.450705+05:30",
+  "used_qubits": [
+   0,
+   1
+  ],
+  "final_layout": "[0, 1]"
+ },
+ "db642l4vf2bc73d0krng": {
+  "group": "native",
+  "backend": "ibm_fez",
+  "created": "2026-10-12 07:39:24.419016+05:30",
+  "used_qubits": [
+   0,
+   1
+  ],
+  "final_layout": "[0, 1]"
+ },
+ "db642q4lf4us73c4p8u0": {
+  "group": "native",
+  "backend": "ibm_fez",
+  "created": "2026-10-12 07:39:44.118155+05:30",
+  "used_qubits": [
+   0,
+   1
+  ],
+  "final_layout": "[0, 1]"
+ },
+ "db642u04qg6s73c4738g": {
+  "group": "native",
+  "backend": "ibm_fez",
+  "created": "2026-10-12 07:40:00.333875+05:30",
+  "used_qubits": [
+   0,
+   1
+  ],
+  "final_layout": "[0, 1]"
+ },
+ "db6430cvf2bc73d0ks9g": {
+  "group": "degraded",
+  "backend": "ibm_fez",
+  "created": "2026-10-12 07:40:09.420958+05:30",
+  "used_qubits": [
+   0,
+   1
+  ],
+  "final_layout": "[0, 1]"
+ },
+ "db6432imb58s738b7p40": {
+  "group": "degraded",
+  "backend": "ibm_fez",
+  "created": "2026-10-12 07:40:18.638182+05:30",
+  "used_qubits": [
+   0,
+   1
+  ],
+  "final_layout": "[0, 1]"
+ },
+ "db6436klf4us73c4p9gg": {
+  "group": "degraded",
+  "backend": "ibm_fez",
+  "created": "2026-10-12 07:40:34.304985+05:30",
+  "used_qubits": [
+   0,
+   1
+  ],
+  "final_layout": "[0, 1]"
+ },
+ "db643bcvf2bc73d0ksn0": {
+  "group": "degraded",
+  "backend": "ibm_fez",
+  "created": "2026-10-12 07:40:53.188758+05:30",
+  "used_qubits": [
+   0,
+   1
+  ],
+  "final_layout": "[0, 1]"
+ }
+}

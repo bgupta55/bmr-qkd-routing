@@ -1,0 +1,67 @@
+======================================================================
+Q15: Δ sweep regime map
+======================================================================
+n=500 phi=0.9: honest w=1e-06  (Δ knee ≈ 3*w=3e-06)
+  Delta=1.0e-06: feasible=1.3%  rate=0.0019
+  Delta=3.0e-06: feasible=12.3%  rate=0.0110
+  Delta=1.0e-05: feasible=97.7%  rate=0.0838
+  Delta=3.0e-05: feasible=99.7%  rate=0.0860
+  Delta=1.0e-04: feasible=99.7%  rate=0.0860
+  Delta=3.0e-04: feasible=100.0%  rate=0.0852
+  Delta=1.0e-03: feasible=100.0%  rate=0.0854
+  Delta=3.0e-03: feasible=99.7%  rate=0.0852
+  Delta=1.0e-02: feasible=100.0%  rate=0.0851
+  Delta=3.0e-02: feasible=100.0%  rate=0.0855
+  Delta=5.0e-02: feasible=100.0%  rate=0.0861
+n=500 phi=0.99: honest w=0.01697  (Δ knee ≈ 3*w=0.05091)
+  Delta=1.0e-06: feasible=0.0%  rate=0.0000
+  Delta=3.0e-06: feasible=0.0%  rate=0.0000
+  Delta=1.0e-05: feasible=0.0%  rate=0.0000
+  Delta=3.0e-05: feasible=0.0%  rate=0.0000
+  Delta=1.0e-04: feasible=0.0%  rate=0.0000
+  Delta=3.0e-04: feasible=0.0%  rate=0.0000
+  Delta=1.0e-03: feasible=0.8%  rate=0.0014
+  Delta=3.0e-03: feasible=1.5%  rate=0.0023
+  Delta=1.0e-02: feasible=5.4%  rate=0.0069
+  Delta=3.0e-02: feasible=34.6%  rate=0.0373
+  Delta=5.0e-02: feasible=70.4%  rate=0.0712
+
+n=10000 phi=0.9: honest w=1e-06  (Δ knee ≈ 3*w=3e-06)
+  Delta=1.0e-06: feasible=12.1%  rate=0.0374
+  Delta=3.0e-06: feasible=85.4%  rate=0.2596
+  Delta=1.0e-05: feasible=100.0%  rate=0.3099
+  Delta=3.0e-05: feasible=100.0%  rate=0.3105
+  Delta=1.0e-04: feasible=99.7%  rate=0.3093
+  Delta=3.0e-04: feasible=100.0%  rate=0.3107
+  Delta=1.0e-03: feasible=100.0%  rate=0.3105
+  Delta=3.0e-03: feasible=100.0%  rate=0.3103
+  Delta=1.0e-02: feasible=99.7%  rate=0.3089
+  Delta=3.0e-02: feasible=100.0%  rate=0.3099
+  Delta=5.0e-02: feasible=99.8%  rate=0.3093
+n=10000 phi=0.99: honest w=3.942e-06  (Δ knee ≈ 3*w=1.183e-05)
+  Delta=1.0e-06: feasible=0.0%  rate=0.0000
+  Delta=3.0e-06: feasible=3.2%  rate=0.0114
+  Delta=1.0e-05: feasible=37.6%  rate=0.1288
+  Delta=3.0e-05: feasible=100.0%  rate=0.3407
+  Delta=1.0e-04: feasible=99.7%  rate=0.3399
+  Delta=3.0e-04: feasible=100.0%  rate=0.3405
+  Delta=1.0e-03: feasible=100.0%  rate=0.3417
+  Delta=3.0e-03: feasible=100.0%  rate=0.3411
+  Delta=1.0e-02: feasible=100.0%  rate=0.3403
+  Delta=3.0e-02: feasible=100.0%  rate=0.3413
+  Delta=5.0e-02: feasible=100.0%  rate=0.3415
+
+Compromised fraction sweep (n=10000, Delta=1e-3 | n=500, Delta=0.5), phi=0.99
+  n=10000 fcomp=0.00: feasible=100.0%  rate=0.3408
+  n=10000 fcomp=0.10: feasible=97.3%  rate=0.3297
+  n=10000 fcomp=0.20: feasible=95.9%  rate=0.3239
+  n=10000 fcomp=0.30: feasible=88.5%  rate=0.2968
+  n=10000 fcomp=0.40: feasible=79.1%  rate=0.2627
+  n=10000 fcomp=0.50: feasible=70.1%  rate=0.2317
+  n=500 fcomp=0.00: feasible=100.0%  rate=0.0941
+  n=500 fcomp=0.10: feasible=97.9%  rate=0.0865
+  n=500 fcomp=0.20: feasible=95.5%  rate=0.0807
+  n=500 fcomp=0.30: feasible=94.0%  rate=0.0744
+  n=500 fcomp=0.40: feasible=90.2%  rate=0.0659
+  n=500 fcomp=0.50: feasible=79.6%  rate=0.0511
+saved <repo>/UPLOAD/experiments/../figures/Q15_delta_regime.png

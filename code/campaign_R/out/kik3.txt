@@ -1,0 +1,1416 @@
+Routing algorithm within the multiple non-overlapping paths approach for
+quantum key distribution networks
+Evgeniy O. Kiktenko, Andrey Tayduganov,∗ and Aleksey K. Fedorov
+National University of Science and Technology “MISIS”, Moscow 119049, Russia
+We develop a novel key routing algorithm for quantum key distribution (QKD) networks that
+utilizes a distribution of keys between remote, i.e., not directly connected by a QKD link, nodes
+through multiple non-overlapping paths. This approach enchases the security of QKD network
+by minimizing potential vulnerabilities associated with individual trusted nodes. The algorithm
+ensures a balanced allocation of the workload across the QKD network links, while aiming for the
+target key generation rate between directly connected and remote nodes. We present the results
+of testing the algorithm on two QKD network models consisting of 6 and 10 nodes. The testing
+demonstrates the ability of the algorithm to distribute secure keys among the nodes of the network
+in an all-to-all manner, ensuring that the information-theoretic security of the keys between remote
+nodes is maintained even when one of the trusted nodes is compromised. These results highlight
+the potential of the algorithm to improve the performance of QKD networks.
+Keywords: quantum communication, quantum key distribution, QKD network, routing scheme
+I. INTRODUCTION
+Quantum key distribution (QKD) technologies rep-
+resent an elegant mechanism for solving the key dis-
+tribution problem [1–3], which is one of the central
+tasks of cryptography. Existing QKD protocols rely
+on the use of quantum channels for transmitting in-
+formation that is encoded in quantum states of single
+photons (on practice, the transmission of weak laser
+pulses via fiber-optic and free-space communication
+channels is used) and authentic classical channels [1].
+The idea behind is that any interception in the process
+of transmitting quantum information can be detected
+by monitoring the quantum bit error rate (QBER) in
+the quantum channel, while authentication of classi-
+cal communications is needed for the protection from
+man-in-the-middle attack during post-processing pro-
+cedures [1, 2]. In the view of the fact that the security
+of QKD is based on the laws of quantum physics, it is
+guaranteed to be secure against any unforeseen tech-
+nological developments, such as cryptoanalysis using
+quantum computing [4]. QKD technologies have at-
+tracted a great deal of interest and it is a widely stud-
+ied field of quantum technologies [3, 5]. At the same
+time, existing realizations of QKD systems still face
+a number of challenges [5], such as limitations in the
+key generation rate and distance, and also practical
+security.
+One of the ways to overcome the distance limita-
+tions, which is essentially related to losses during the
+transferofquantumstates, istouseQKDnetworks[6].
+Moreover, QKD networks make key generation ser-
+vices available for multiple users. In the case of quan-
+tum communications, standard repeater schemes can-
+not be used, so quantum repeaters [7–9] are required.
+∗ Correspondence email address: a.taiduganov@misis.ru
+Despite significant progress in this field during last
+decades (e.g., see Refs. [10–13]), quantum repeaters
+are not yet widely used in industrial QKD networks.
+The most developed concept for large-scale, indus-
+trial QKD networks is to use trusted nodes [14–20],
+which play a role of a user in QKD protocol that
+compose a common secret key by using the bit-wise
+XOR operation for two established keys with neigh-
+boring nodes. The negative side for the trusted-node
+paradigm is that all the users of the network must
+trust the node and the node needs to be physically
+isolated well, while the positive side is reducing the
+cost and complexity as compared to the all connected
+point-to-point links. At this stage, the deployment of
+QKD networks faces the problem of the optimal rout-
+ing, which has a goal to optimally use the resources of
+the network when establishing keys between two arbi-
+trary users. Existing QKD networks solve the routing
+problem by means of various protocols [21–32], and
+tools (such as optical switches [18, 33, 34]); however,
+this problem is far from being fully solved especially in
+the case of QKD networks of arbitrary topology [26–
+32].
+In this work, we consider the key routing task within
+the multiple non-overlapping paths approach [35–39].
+The idea of this approach is to minimize the require-
+ment for trust by distributing a key across remote
+nodes via independent routes. This ensures that the fi-
+nal key remains secure, provided that all trusted nodes
+on at least one route remain secure. We propose
+a routing algorithm that is specifically designed for
+use with the multiple non-overlapping paths approach.
+This algorithm differs from previously considered al-
+gorithms for single-path routing [21, 22, 24, 29, 31] in
+that it is tailored to handle the unique requirements
+of the multiple non-overlapping path scenario. The
+developed algorithm differs from that proposed in [25]
+by incorporating the limited capacity for key genera-
+tion in networks and addressing the routing issue for
+arXiv:2411.07810v2  [quant-ph]  3 Mar 2025
+2
+all nodes simultaneously. At the same time, it dif-
+fers from the more recent scheme for hybrid-trusted
+networks [30] in that all nodes in the network are as-
+sumed to have equal trust in it. Importantly, key rout-
+ing algorithms designed for the standard single-path
+trustednodeschemesdonotguaranteetheefficiencyof
+key distribution in the context of the non-overlapping
+paths approach. To address this challenge, we pro-
+pose and test the first, to our knowledge, key routing
+algorithm specifically tailored for the non-overlapping
+paths framework.
+The paper is organized as follows. In Sec. II, we dis-
+cuss the basic features of the multiple non-overlapping
+paths approach. In Sec. III, we present the developed
+routing algorithm. In Sec. IV, we demonstrate the
+performance of the algorithm on two QKD network
+models. Finally, we conclude in Sec. V.
+II. THE CONCEPT OF THE M–PATHS
+SCHEME
+To overcome the limitation of the QKD range, mul-
+tipleshortpoint-to-pointQKDlinksarecombinedinto
+QKD networks with so-called intermediate trusted
+nodes [6, 40]. In this approach, quantum keys are
+generated only between the network nodes connected
+directly by a quantum channel, and trusted nodes per-
+form a key hopping via subsequent bit-wise XOR op-
+erations. With the use of this technology, it is possible
+to build QKD networks of various topologies like back-
+bone, ring, star or mixed one.
+The downside of the trusted node paradigm is that
+remote network nodes have to trust the physical in-
+tegrity of all nodes in the chain between them. It is
+possibletorelaxthetrustrequirementandincreasethe
+security by considering an M non-overlapping paths
+approach [35–39], where the secret key between two
+remote nodes is obtained by combining keys fromM
+(with M > 1) non-overlapping paths. In the following,
+we refer to it asM–paths approach. We would like to
+note that, in this context, we refer to a path as an
+independent key hopping route. From a physical per-
+spective, such independent paths can be realized even
+within a single transmission line, where certain nodes
+may be skipped, as is the case of quantum control-
+based key distribution networks [41, 42].
+Let us consider a communication between remote
+nodes i and j via a set of M non-overlapping paths
+P M
+ij . Let each path P ∈ P M
+ij provide an ℓ–bit
+information-theoretically secure keyKP
+ij. Then the fi-
+nal ℓ–bit secret key to be used for the unconditionally
+secure data encryption with the one-time pad (OTP)
+technique can be obtained as follows:
+Kij =
+M
+P ∈P M
+ij
+KP
+ij , (1)
+where L stands for a bit-wise exclusive or (XOR)
+operation. Therefore, due to the perfect secrecy of
+the OTP, the eavesdropping becomes technically more
+complicated in theM–path scheme since the interme-
+diate nodes from each of M paths must be hacked
+(compromised) in order to reconstruct the entire se-
+cret key. Equivalently, compromising fewer than M
+nodes from P M
+ij would not compromise Kij. Assum-
+ing a probability of compromise of a node operated
+as a trusted node isϵcompr, we can estimate that the
+probability of compromising a key between any two
+remote nodes inM–paths regime is upper bounded by
+ϵM
+compr.
+Here, we would like to emphasize several points re-
+lated to the M–paths scheme. First, the applicabil-
+ity of M–path schemes strictly depends on the topol-
+ogy of QKD networks. It is impossible to use this
+scheme in backbone-type networks, where there is only
+a single path between two remote nodes, or to apply
+a 3–path scheme within a ring topology of the net-
+work graph. Second, distributing an ℓ–bit key using
+the M–path scheme reduces the remaining keys byℓ
+bits for each direct link in each path (we discuss this
+in more detail in the following section). Therefore,
+increasing M also increases the “cost” of distributing
+keys between remote nodes in terms of the remaining
+key between network nodes. In this regard, the se-
+lection ofM within the range allowed by the topology
+should consider a balance between the desired security
+level, estimated asϵM
+compr, and the increased key usage
+in the network. Thirdly, the secret key Kij can be
+obtained by concatenating several keys corresponding
+to different M–element sets of non-overlapping paths
+{P M(k)
+ij }k:
+Kij =
+ M
+P ∈P M (1)
+ij
+KP
+ij
+
+ M
+P ′∈P M (2)
+ij
+KP ′
+ij
+ . . . , (2)
+where ∥ denotes concatenation. It should be noted
+that some of the paths in the sets{P M(k)
+ij }k may have
+common elements. Additionally, the lengths of con-
+catenated parts may differ. The construction ofKij in
+the form of Eq. (2), assuming it is permitted by the
+network topology, enables a more balanced distribu-
+tion of key consumption across the network. The last
+point raises an important challenge in finding a practi-
+cal and efficient key routing algorithm within theM–
+path approach for QKD networks of arbitrary topol-
+ogy. This algorithm should allow for the selection of
+suitable combinations of paths in order to distribute
+keys between pairs of remote nodes. Additionally, it
+should ensure a sufficient reserve of available keys for
+directly connected nodes. We consider the construc-
+tion of such an algorithm in the section below.
+3
+δK
+01
+⊕δK
+14
+δK02 ⊕δK24
+δK
+03
+⊕δK
+34
+0 2 4
+1
+3
+δK
+01
+⊕δK
+03 δK
+14
+⊕δK
+34
+0 2 4
+1
+3
+Figure 1: The key distribution between the remote
+nodes 0 and 4 (left) and 1 and 3 (right) via various
+non-overlapping paths for a network of five nodes. The
+path index ofδKij is omitted for simplicity.
+III. ROUTING ALGORITHM FOR THE
+M–PATH SCHEME
+We begin with introducing some formal definitions
+and notations used later. An arbitrary QKD network
+with N nodes is represented as a graphG = ( V, E),
+where the verticesV = {i}N −1
+i=0 are the network nodes
+and the edgesE ⊆ {(i, j)| i, j ∈ V } are the fiber optic
+lines connecting them. The edge weight corresponds
+to the secret key generation rate of the corresponding
+section of the fiber optic line. The definition of theM–
+path routing scheme obviously implies that the degree
+of each vertex, i.e. the number of edges that are in-
+cident to the vertex, is required to bedeg(i) ≥ M.
+A path in a graph is a finite sequence of edges which
+joins a sequence of distinct vertices. An open path
+from node i to node j can be defined in a short way as
+a sequence of adjacent vertices, connected by edges,
+Pij := (i, k, l, . . . , m, j) , (3)
+with (i, k), (k, l), . . . ,(m, j) ∈ E.
+Let Rij = Rji be the secret key generation rate for a
+pairwise QKD link or chain of links connecting nodes
+i and j such that Rij > 0 if (i, j) ∈ E and is zero,
+otherwise. The average length of the local secret key,
+Kij, accumulated during some time periodτ, is equal
+to |Kij| = Rijτ. Let Tij be a target secret key gen-
+eration rate between the nodesi and j, which can be
+associated with the key consumption rate. Note that
+it is possible to haveTij > 0 even if (i, j) ̸∈ E. Then
+the goal is to develop a (sub)optimal key flow that pro-
+vides the desiredTij for all pairs(i, j) by manipulating
+the effective key ratesReff
+ij .
+To illustrate the concept of the effective rate, con-
+sider a simple network of five nodes in Fig. 1 and
+set M = 2. The communication between the remote
+nodes 0 and 4 (R04 ≡ 0) in the2–path scheme can be
+done via three possible pairs of non-overlapping paths,
+P2(1)
+04 = {(0, 1, 4), (0, 2, 4)} ,
+P2(2)
+04 = {(0, 2, 4), (0, 3, 4)} ,
+P2(3)
+04 = {(0, 1, 4), (0, 3, 4)} ,
+(4)
+while the communication between the nodes 1 and 3
+(R13 ≡ 0) is feasible only via one pair,
+P2
+13 = {(1, 0, 3), (1, 4, 3)} . (5)
+Every local accumulated secret key Kij is split into
+subsamples in the following way:
+K01 = Keff
+01 ∥δK(0,1,4)
+01 ∥δK(0,1,4)′
+01 ∥δK(1,0,3)
+01 ,
+K02 = Keff
+02 ∥δK(0,2,4)
+02 ∥δK(0,2,4)′
+02 ,
+K03 = Keff
+03 ∥δK(0,3,4)
+03 ∥δK(0,3,4)′
+03 ∥δK(1,0,3)
+03 ,
+K14 = Keff
+14 ∥δK(0,1,4)
+14 ∥δK(0,1,4)′
+14 ∥δK(1,4,3)
+14 ,
+K24 = Keff
+24 ∥δK(0,2,4)
+24 ∥δK(0,2,4)′
+24 ,
+K34 = Keff
+34 ∥δK(0,3,4)
+34 ∥δK(0,3,4)′
+34 ∥δK(1,4,3)
+34 ,
+(6)
+where the keysδK P(′)
+ij are sacrificed for the key hop-
+ping through the pathP with OTP technique, while
+the remaining effective keys Keff
+ij are used for direct
+communication between connected nodes. We note
+that δK P
+ij ̸= δK P ′
+ij since the path belongs to different
+M–path sets, see Eq. (4). The OTP technique requires
+the key lengths to satisfy the following conditions:
+|δK(0,1,4)
+01 | = |δK(0,1,4)
+14 | = |δK(0,2,4)
+02 | = |δK(0,2,4)
+24 | ,
+|δK(0,2,4)′
+02 | = |δK(0,2,4)′
+24 | = |δK(0,3,4)
+03 | = |δK(0,3,4)
+34 | ,
+|δK(0,1,4)′
+01 | = |δK(0,1,4)′
+14 | = |δK(0,3,4)′
+03 | = |δK(0,3,4)′
+34 | ,
+|δK(1,0,3)
+01 | = |δK(1,0,3)
+03 | = |δK(1,4,3)
+14 | = |δK(1,4,3)
+34 | .
+Then the final effective keys to encrypt the communi-
+cation between remote nodes are formed according to
+Eq. (2),
+Keff
+04 =
+ 
+δK(0,1,4)
+01 ⊕ δK(0,2,4)
+02
+
+∥
+ 
+δK(0,2,4)′
+02 ⊕ δK(0,3,4)
+03
+
+∥
+ 
+δK(0,1,4)′
+01 ⊕ δK(0,3,4)′
+03
+
+,
+Keff
+13 = δK(1,0,3)
+01 ⊕ δK(1,4,3)
+14 .
+(7)
+Now having all nodes “connected”, we can define the
+effective generation rate for arbitrary pair of nodes in
+the network as
+Reff
+ij := |Keff
+ij |
+τ > 0 . (8)
+It is easy to see that Reff
+ij < R ij for all (i, j) ∈ E.
+In this way, the key management task is to find an
+optimal set of δK P(′)
+ij in Eq. (6) such thatReff
+ij ≥ Tij
+for all i, j ∈ V.
+Here, we would like to draw attention to the fact
+that all OTP-secured communications must be au-
+thenticated, which also requires the use of a secret
+key. Due to the fixed consumption of secret keys in
+authentication of each message, it is more efficient in
+4
+practice to increase the interval between “key distri-
+bution rounds” and, consequently, the length of the
+keystransmittedineachmessage. Thisapproachhelps
+to minimize the relative costs associated with authen-
+tication. In the following, we assume that the key
+consumption for authentication can be neglected com-
+pared to the transmitted key material.
+The proposed routing Algorithm 1 follows an iter-
+ative process (see also an example of a step-by-step
+workflow in Appendix A). As the basic target quan-
+tity to be minimized in each iteration we consider
+∆ := max
+i,j∈V
+
+Tij − Reff
+ij
+
+, (9)
+which provides the discrepancy between the target and
+effective rates for the “worst” pair of nodes. Hav-
+ing ∆ ≤ 0 means that the goal is achieved, and
+the algorithm can be stopped. At every iteration
+r = 1 , 2, . . . , rmax, where the hyperparameter rmax
+stands for the maximal allowed number of iterations,
+first we search for the currently “worst” pair of nodes
+in the graph (i.e. with maximum value of∆), denoted
+by (i∗, j∗). If the found pair is connected directly, then
+the algorithm stops. In the case of multiple pair can-
+didates a random candidate is selected. Then among
+all possible sets ofM non-overlapping paths fromi∗ to
+j∗, denoted byLM
+i∗j∗ the optimal setP M,opt
+i∗j∗ is selected
+by searching for a set that has a path containing a pair
+of connected nodes with the minimal rate deficiency.
+In Algorithm 1, we formalize it by introducing the de-
+ficiency function D(·), which returns the maximal de-
+ficiency among all direct links within input set ofM
+non-overlapping paths. Again, if multiple candidates
+are found, a random candidate over candidates with
+the minimal total length is selected (this is formalized
+by rand_ch_min_dist(·)function). When the optimal
+M–path combination is determined,Reff
+i∗j∗ is increased
+by the small amountδR (comes as an input hyperpa-
+rameter of the algorithm), whileReff
+ij is decreased by
+δR for all adjacent nodes from every path inP M,opt
+i∗j∗ .
+After that, we calculate the new value of the cost
+function according to Eq. 9 and store it in∆upd. If
+the new value is “worse” than the one in the begining
+of the iteration (∆upd > ∆), then the algorithm stops,
+otherwise the information about obtained key routing
+way P M,opt
+i∗j∗ between i∗ and j∗ is added to the list
+routing_list, and the algorithm proceeds to the next
+iteration. Here we assume thatrouting_list consists of
+records of the form(P M
+i′j′ : R′). Each of such records
+means that during some fixed time periodτ, a key of
+length R′τ have to be distributed between i′ and j′
+over M paths in P M
+i′j′. Thus, if routing_list already
+contains a record of the form(P M,opt
+i∗j∗ : Rcur
+i∗j∗), then it
+is replaced by(P M,opt
+i∗j∗ : Rcur
+i∗j∗ + δR), or the new record
+(P M,opt
+i∗j∗ : δR) is added, otherwise.
+Finally, we would like to discuss the role of two hy-
+perparameters: rmax and δR. By bounding the num-
+ber of iterations, rmax limits the maximum running
+Algorithm1
+Require: (Rij), (Tij), δR, rmax
+Ensure: routing_list
+Reff
+ij = Rij ∀i, j ∈ V ▷ initialization of the effective key
+generation matrix
+r = 0 ▷ initialization of iteration counter
+routing_list = [] ▷ initialization of empty routing list
+∆ = maxi,j∈V [Tij − Rij]
+while ∆ > 0 ∧ r < r max do
+D(i, j) := Tij − Reff
+ij ▷ current rate deficiency
+function
+(i∗, j∗) = rand_ch{arg maxi,j∈V D(i, j)} ▷ selecting
+a random pair over pairs with the “worst” deficiency
+if (i∗, j∗) ∈ E then
+return routing_list ▷ stopping the algorithm
+end if
+Pi∗j∗ = {P = (i∗, . . . , j∗)} ▷ set of all possible paths
+from i∗ to j∗
+LM
+i∗j∗ = {P M
+i∗j∗ = {P ∈ P i∗j∗ : P ∩ P ′ =
+{i∗, j∗} ∀ P ′ ∈ P M
+i∗j∗ , P ′ ̸= P } : |P M
+i∗j∗ | = M } ▷ list of all
+possible combinations ofM non-overlapping paths from
+i∗ to j∗
+D(P M
+i∗j∗) := maxP ∈P M
+i∗ j∗ max(i,j)∈P D(i, j) ▷ de-
+ficiency function which characterizes theM–path com-
+bination capacity (“deficiency of the worst link in the
+worst path”)
+P M,pre-opt
+i∗j∗ = arg minP M
+i∗ j∗ ∈L D(P M
+i∗j∗)
+P M,opt
+i∗j∗ = rand_ch_min_dist{P M,pre-opt
+i∗j∗ } ▷ taking
+the optimal M–path combination
+Reff
+i∗j∗ = Reff
+i∗j∗ + δR ▷ increase the effective key rate
+for the “worst” pair
+for all P ∈ P M,opt
+i∗j∗ do
+for all i, j ∈ P : (i, j) ∈ E do
+Reff
+ij = Reff
+ij − δR ▷ decrease the effective key
+rates for adjacent pairs
+end for
+end for
+∆upd = maxi,j∈V [Tij − Reff
+ij ]
+if ∆upd ≤ ∆ then
+update routing_list with a record(P M,opt
+i∗j∗ : δR)
+∆ = ∆upd ▷ updating the value if the cost and
+function
+r = r + 1 ▷ incrementing the counter
+else
+return routing_list ▷ stopping the algorithm
+end if
+end while
+return routing_list
+time of the algorithm. One can also consider replac-
+ing the condition r < r max in the main loop of the
+algorithm by a condition that checks if the current
+running time is less than the maximum allowed time.
+If there are no limits on running time, rmax can be
+set to infinity. δR determines the size of the step at
+each iteration. A smaller δR results in more itera-
+tions and a higher precision in the final value of the
+cost function (∆). As we will see in the testing in the
+next section, reducing δR can improve the cost func-
+tion by the amount ofδR. However, from a practical
+5
+perspective, it is not advisable to reduceδR below a
+level corresponding to the typical cost of a secret key
+for authentication purposes, assumed to be negligible
+within the construction of the algorithm.
+IV. PERFORMANCE DEMONSTRATION OF
+THE ALGORITHM
+To demonstrate the performance of the developed
+algorithm, we consider the task of routing the key
+within the 2–path scheme for two examples of QKD
+networks.
+The first QKD network is represented by a six-
+vertex graph shown in Fig. 2a. For simplicity, we as-
+sume that all adjacent links are equidistantly located
+and have equal initial key generation rates, namely,
+Rij := 1kbit/s for all(i, j) ∈ E. The target rates are
+also set to be equal,Tij := 0.1kbit/s, for all possible
+pairs. The decrease of the cost function ∆ with it-
+eration number r is shown in Fig. 2b. The algorithm
+completes the task after 80, 160 and 800 iterations, re-
+spectively. For all considered values ofδR, the matrix
+of final effective ratesReff approaches to a form shown
+in Fig. 2c. The corresponding output routing list for
+remote nodes is obtained in the following:
+routing_list = [{(0, 1, 2), (0, 3, 2)} : 0.1 ,
+{(1, 0, 3), (1, 2, 3)} : 0.1 ,
+{(1, 2, 5), (1, 4, 5)} : 0.1 ,
+{(2, 1, 4), (2, 5, 4)} : 0.1 ,
+{(0, 1, 4, 5), (0, 3, 2, 5)} : 0.1 ,
+{(3, 0, 1, 4), (3, 2, 5, 4)} : 0.1 ,
+{(0, 1, 4), (0, 3, 2, 5, 4)} : 0.1 ,
+{(3, 0, 1, 4, 5), (3, 2, 5)} : 0.1] .
+(10)
+It can be seen that the resulting paths follow the
+graph symmetry and match intuitive expectations. It
+should be noted that each pair of remote nodes(i, j)
+has a unique pair of paths through which the key
+is distributed between them. Considering the key
+management, the accumulated secret key, e.g. K01,
+is split into multiple subsamples: six keys {δK P
+01}
+of equal length |δK P
+01| = 0 .1|K01| are used for the
+key hopping via the paths (0,1,2), (1,0,3), (0,1,4,5),
+(3,0,1,4), (0,1,4) and (3,0,1,4,5), while the remaining
+key Keff
+01 = K01\
+ S
+P δK P
+01
+
+of length|Keff
+01 | = 0.4|K01|
+can be entirely used for the direct communication be-
+tween the nodes 0 and 1. A similar key splitting
+procedure according to the Reff matrix in Fig. 2c
+is performed for other edges of the graph. Then
+the effective secret key to encrypt the communica-
+tion between a pair of remote nodes, e.g. 1 and 3,
+is Keff
+13 = δK(1,0,3)
+01 ⊕ δK(1,2,3)
+12 .
+The second considered example of a more complex
+QKD network topology, which is taken from Ref. [29],
+is shown in Fig. 3a. In contrast to the previous
+1 1
+1
+11
+1 1
+0 1
+23
+4
+5
+(a)
+0 200 400 600 800
+Iteration number
+0.00
+0.02
+0.04
+0.06
+0.08
+0.10
+∆
+δR = 0.01
+δR = 0.005
+δR = 0.001
+(b)
+0 1 2 3 4 5
+0
+1
+2
+3
+4
+5
+0.4
+0.1
+0.4
+0.1
+0.1
+0.4
+0.6
+0.1
+0.4
+0.1
+0.1
+0.6
+0.4
+0.1
+0.4
+0.4
+0.1
+0.4
+0.1
+0.1
+0.1
+0.4
+0.1
+0.1
+0.4
+0.1
+0.1
+0.4
+0.1
+0.4
+Resulting Reﬀ
+ij
+(c)
+Figure 2: (a) The network graph with edges, labeled
+with secret key generation rates in kbps. (b) The it-
+eration number dependence of the cost function. (c)
+The resulting effective secret key generation rates for
+various pairs of network nodes.
+case, the network has different rates for each link and
+does not possess a symmetrical structure. The secret
+key generation rates are simulated for the decoy-state
+BB84 protocol [43–47] using the link distances from
+the corresponding graph in Ref. [29]. For this exam-
+ple, we set Tij := 1 .0kbit/s for all possible pairs of
+nodes and M = 2. The behavior of the cost function
+∆ with iteration numberr for δR ∈ {0.1, 0.05, 0.01} is
+shown in Fig. 3b. The algorithm stops after 78, 158,
+and 793 iterations, respectively. One can notice that
+∆ does not approach to zero like in the first example
+and stops around 0.75 since the chosen target matrix
+turns out to be overrated for this scheme. We also note
+the choice ofδR slightly affects the resulting value of
+the cost function.
+The resulting form of theReff matrix forδR = 0.01,
+shown in Fig. 3c, demonstrates that the algorithm pro-
+vide close-to-uniform distribution of the effective key
+generation rates among remote nodes. The 11 links,
+which keep an effective key generation rate noticeably
+above a “water level” of 0.25, correspond to directly
+connected nodes. However, note that the key genera-
+tion in direct links(2, 4), (5, 8), and(6, 9) drops to the
+“water level”, stopping the algorithm.
+For additional illustration, we present all the path
+pairs from routing_list used for the key distribution
+between 0th and 9th nodes:
+(0, 2, 4, 7, 9), (0, 3, 5, 8, 9) : 0.02 ,
+(0, 1, 5, 8, 9), (0, 2, 4, 7, 9) : 0.03 ,
+(0, 1, 5, 8, 9), (0, 3, 6, 9) : 0.1 ,
+(0, 2, 4, 7, 9), (0, 3, 6, 9) : 0.1 ,
+(0, 2, 4, 8, 9), (0, 3, 6, 9) : 0.01 .
+(11)
+Notably, the effective key generation rate of Reff
+09 =
+0.26 is realized in a quite non-trivial way via five dif-
+6
+4.9 4.9 4.6 4.9
+4.4
+4.8
+4.1
+4.7
+4.9 4.4
+4.34.8 4.2
+4.4
+0 1 5 8 9
+3 6
+2 4 7
+(a)
+0 200 400 600 800
+Iteration number
+0.7
+0.8
+0.9
+1.0
+∆
+δR = 0.1
+δR = 0.05
+δR = 0.01
+(b)
+0 1 2 3 4 5 6 7 8 9
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+3.61
+1.64
+0.65
+0.26
+0.26
+0.25
+0.25
+0.26
+0.26
+3.61
+2.12
+0.26
+0.26
+1.07
+0.26
+0.25
+0.25
+0.26
+1.64
+2.12
+0.26
+0.24
+0.26
+0.26
+0.26
+0.26
+0.26
+0.65
+0.26
+0.26
+0.25
+1.09
+0.98
+0.25
+0.26
+0.26
+0.26
+0.26
+0.24
+0.25
+0.26
+0.26
+1.01
+1.01
+0.25
+0.26
+1.07
+0.26
+1.09
+0.26
+0.25
+0.25
+0.24
+0.26
+0.25
+0.26
+0.26
+0.98
+0.26
+0.25
+0.25
+0.26
+0.28
+0.25
+0.25
+0.26
+0.25
+1.01
+0.25
+0.25
+0.26
+0.91
+0.26
+0.25
+0.26
+0.26
+1.01
+0.24
+0.26
+0.26
+1.05
+0.26
+0.26
+0.26
+0.26
+0.25
+0.26
+0.28
+0.91
+1.05
+Resulting Reﬀ
+ij
+(c)
+Figure 3: (a) The network graph from Ref. [29] with
+edges that are labeled with the secret key generation
+rates in kbps, simulated for the decoy-state BB84 pro-
+tocol using the simple theoretical model from Ref. [44]
+and taking into account the detector’s dead time ef-
+fect. (b) The iteration number dependence of the cost
+function. (c) The resulting effective secret key genera-
+tion rates (obtained withδR = 0.01) for various pairs
+of network nodes.
+ferent non-overlapping path pairs.
+Then the final effective secret key between the nodes
+0and9, assembledaccordingtoEq.(2), canbewritten
+as
+Keff
+09 =
+ 
+δK(0,2,4,7,9)
+02 ⊕ δK(0,3,5,8,9)
+03
+
+∥
+ 
+δK(0,1,5,8,9)
+01 ⊕ δK(0,2,4,7,9)′
+02
+
+∥
+ 
+δK(0,1,5,8,9)′
+01 ⊕ δK(0,3,6,9)
+03
+
+∥
+ 
+δK(0,2,4,7,9)′′
+02 ⊕ δK(0,3,6,9)′
+03
+
+∥
+ 
+δK(0,2,4,8,9)
+02 ⊕ δK(0,3,6,9)′′
+03
+
+,
+(12)
+where the lengths of the XORed pairs of keys depend
+on the respective effective rates. A more detailed de-
+scriptionofsuchkeymanagementbecomeshighlynon-
+trivial in this case and is beyond this research.
+V. CONCLUSION AND OUTLOOK
+In this work, we have addressed the issue of trust
+reduction in QKD networks by studying the key dis-
+tribution among remote nodes through multiple non-
+overlapping paths (M–path scheme). We have pro-
+posed a novel iterative greedy algorithm for key rout-
+ing in QKD networks, aimed at effectively facilitating
+the key distribution between remote nodes while uti-
+lizing the M–path scheme. The efficiency of the pro-
+posed algorithm has been shown through case stud-
+ies involving two QKD networks comprising 6 and 10
+nodes, respectively. Our results have demonstrated
+the potential for generating non-trivial key routing
+paths between remote nodes while achieving balanced
+load distribution across directly connected network
+nodes. This work not only contributes to enhanc-
+ing the reliability of QKD systems, but also opens
+avenues for further research in optimizing key distri-
+bution strategies for QKD networks.
+As a potential limitation on the applicability of the
+developed algorithm, we would like to emphasize its
+strong dependence on network topology. Specifically,
+it is assumed that any two remote nodes can be con-
+nected by at leastM non-overlapping paths. However,
+in a real QKD network, this assumption may not hold.
+It is possible to envision a scenario where some pairs of
+remote nodes are connected by non-overlapping paths,
+but others are not. This limitation can be addressed
+by considering a more flexible approach with differ-
+ent requirements for the value ofM for each pair, or
+by considering “partially overlapping path” scenarios.
+This appears to be a promising avenue for future re-
+search.
+ACKNOWLEDGMENTS
+This research was supported by the Priority 2030
+program at the National University of Science and
+Technology “MISIS” under the project K1-2022-027.
+We also thank V. Dubinin for fruitful discussions.
+Appendix A
+To illustrate a step-by-step workflow of the Algo-
+rithm 1, we consider a simple network of five nodes,
+depicted in Fig. 4a. The graph edges are labeled with
+corresponding secret key generation rates which are
+represented by the initial key rate matrix in Fig. 4b.
+The target rates are assumed to beTij = 0 .2. The
+iteration step is set to beδR = 0.1.
+1. At the start the remote nodes apparently have
+the “worst” node pair deficiency,
+arg max
+i,j∈V
+D(i, j) = {(0, 4), (1, 3)} .
+Hence, a random candidate, e.g. (1, 3), is cho-
+sen. Then the list of all two non-overlapping
+path combinations from node 1 to node 3 is con-
+structed,
+7
+0.5
+0.4
+1.5 0.3
+0.5
+0.6
+1.7
+0.9
+0 2 4
+1
+3
+(a)
+0 1 2 3 4
+0
+1
+2
+3
+4
+0.5
+1.5
+0.5
+0.0
+0.5
+1.7
+0.0
+0.4
+1.5
+1.7
+0.9
+0.3
+0.5
+0.0
+0.9
+0.6
+0.0
+0.4
+0.3
+0.6
+Initial Rij
+(b)
+0 1 2 3 4
+0
+1
+2
+3
+4
+0.4
+1.5
+0.4
+0.0
+0.4
+1.6
+0.1
+0.4
+1.5
+1.6
+0.8
+0.3
+0.4
+0.1
+0.8
+0.6
+0.0
+0.4
+0.3
+0.6
+Reﬀ(1)
+ij
+(c)
+0 1 2 3 4
+0
+1
+2
+3
+4
+0.3
+1.5
+0.3
+0.1
+0.3
+1.6
+0.1
+0.3
+1.5
+1.6
+0.8
+0.3
+0.3
+0.1
+0.8
+0.5
+0.1
+0.3
+0.3
+0.5
+Reﬀ(2)
+ij (d)
+0 1 2 3 4
+0
+1
+2
+3
+4
+0.3
+1.5
+0.3
+0.1
+0.3
+1.5
+0.2
+0.2
+1.5
+1.5
+0.7
+0.3
+0.3
+0.2
+0.7
+0.4
+0.1
+0.2
+0.3
+0.4
+Reﬀ(3)
+ij
+(e)
+0 1 2 3 4
+0
+1
+2
+3
+4
+0.3
+1.4
+0.2
+0.2
+0.3
+1.5
+0.2
+0.2
+1.4
+1.5
+0.7
+0.2
+0.2
+0.2
+0.7
+0.3
+0.2
+0.2
+0.2
+0.3
+Reﬀ(4)
+ij (f)
+Figure 4: (a) The network graph with edges, labeled
+with secret key generation rates. (b) The initial key
+rate matrix. (c)–(f) The resulting effective secret key
+generation rates after every iteration.
+L2
+13 = [{(1, 0, 2, 3), (1, 4, 3)} , D = −0.2
+{(1, 0, 3), (1, 4, 2, 3)} , D = −0.1
+{(1, 0, 3), (1, 4, 3)} , D = −0.2
+{(1, 0, 3), (1, 2, 4, 3)} , D = −0.1
+{(1, 0, 3), (1, 2, 3)} , D = −0.3
+{(1, 4, 3), (1, 2, 0, 3)} , D = −0.2
+{(1, 4, 3), (1, 2, 3)]} . D = −0.2
+Here, in the right column, we put values ofD
+for each of combination of paths. It is computed
+as a maximal defficiecy (target rate minus cur-
+rent rate) over all links in the both paths. For
+example, for {(1, 0, 3), (1, 4, 3)}, we have D =
+max(0.2 − 0.5, 0.2 − 0.5, 0.2 − 0.4, 0.2 − 0.6) =
+−0.2. The lowest value of the path deficiency
+function, D = −0.3, determines the optimal 2–
+path combination,
+P2,opt
+13 = {(1, 0, 3), (1, 2, 3)} .
+The effective rates for all node pairs fromP2,opt
+13
+are computed as follows:
+Reff
+13 = δR ,
+Reff
+ij = Rij − δR ∀ij ∈ {01, 03, 12, 23} .
+The result can be seen in Fig. 4c. The routing
+list, which was initially empty, is appended with
+the first entry:
+routing_list = [{(1, 0, 3), (1, 2, 3)} : 0.1] .
+2. After the first iteration,(0, 4) automatically be-
+comes the “worst” pair, for which the list of non-
+overlappingpathswithcorresponding2–pathde-
+ficiencies is
+L2
+04 = [{(0, 1, 4), (0, 2, 4)} , D = −0.1
+{(0, 1, 4), (0, 2, 3, 4)} , D = −0.2
+{(0, 1, 4), (0, 3, 4)} , D = −0.2
+{(0, 1, 4), (0, 3, 2, 4)} , D = −0.1
+{(0, 1, 2, 4), (0, 3, 4)} , D = −0.1
+{(0, 2, 4), (0, 3, 4)} , D = −0.1
+{(0, 2, 1, 4), (0, 3, 4)] , D = −0.2
+One can see that there are three candidates
+with lowest valueD = −0.2 which form the set
+P2,pre-opt
+04 , but only one has the lowest distance
+(i.e. the total number of edges that form two
+paths), equal to 4. Hence,
+P2,opt
+04 = {(0, 1, 4), (0, 3, 4)} .
+The effective rates for all node pairs fromP2,opt
+04
+are recomputed as follows:
+Reff
+04 = δR ,
+Reff
+01(03) → Reff
+01(03) − δR ,
+Reff
+14(34) = R14(34) − δR .
+The result can be seen in Fig. 4d. The routing
+list is appended with the second entry:
+routing_list = [{(1, 0, 3), (1, 2, 3)} : 0.1 ,
+{(0, 1, 4), (0, 3, 4)} : 0.1] .
+3. After the second iteration there are again two
+candidates with “worst” node pair deficiency,
+arg maxi,j∈V D(i, j) = {(0, 4), (1, 3)}, among
+8
+which, e.g. (1, 3), is chosen. The non-
+overlapping path list is apparently the same as
+for the first iteration, however, the deficiencies
+are renewed:
+L2
+13 = [{(1, 0, 2, 3), (1, 4, 3)} , D = −0.1
+{(1, 0, 3), (1, 4, 2, 3)} , D = −0.1
+{(1, 0, 3), (1, 4, 3)} , D = −0.1
+{(1, 0, 3), (1, 2, 4, 3)} , D = −0.1
+{(1, 0, 3), (1, 2, 3)} , D = −0.1
+{(1, 4, 3), (1, 2, 0, 3)} , D = −0.1
+{(1, 4, 3), (1, 2, 3)] , D = −0.1
+Among three candidates with lowest distance a
+random one is chosen:
+P2,opt
+13 = {(1, 4, 3), (1, 2, 3)} .
+The new effective rates are
+Reff
+13 → Reff
+13 + δR ,
+Reff
+ij → Reff
+ij − δR ∀ij ∈ {14, 34, 12, 23} .
+The result can be seen in Fig. 4e. The routing
+list is appended with new entry:
+routing_list = [{(1, 0, 3), (1, 2, 3)} : 0.1 ,
+{(1, 4, 3), (1, 2, 3)} : 0.1 ,
+{(0, 1, 4), (0, 3, 4)} : 0.1] .
+4. After the third iterationD(0, 4) = 0.1 turns out
+to be the highest. Among all paths from node 0
+to node 4,
+L2
+04 = [{(0, 1, 4), (0, 2, 4)} , D = 0
+{(0, 1, 4), (0, 2, 3, 4)} , D = 0
+{(0, 1, 4), (0, 3, 4)} , D = 0
+{(0, 1, 4), (0, 3, 2, 4)} , D = 0
+{(0, 1, 2, 4), (0, 3, 4)} , D = −0.1
+{(0, 2, 4), (0, 3, 4)} , D = −0.1
+{(0, 2, 1, 4), (0, 3, 4)] , D = 0
+there are two candidates with lowest 2–path de-
+ficiency D = −0.1. The optimal path combina-
+tion with the lowest distance is
+P2,opt
+04 = {(0, 2, 4), (0, 3, 4)} ,
+In this way the final rate correction is
+Reff
+04 → Reff
+04 + δR ,
+Reff
+ij → Reff
+ij − δR ∀ij ∈ {02, 24, 03, 34} .
+The result can be seen in Fig. 4e. The resulting
+routing list takes the form:
+routing_list = [{(1, 0, 3), (1, 2, 3)} : 0.1 ,
+{(1, 4, 3), (1, 2, 3)} : 0.1 ,
+{(0, 1, 4), (0, 3, 4)} : 0.1 ,
+{(0, 2, 4), (0, 3, 4)} : 0.1] .
+Since now all effective rates are not less than the
+target rate, the algorithm stops.
+[1] N. Gisin, G. Ribordy, W. Tittel, and H. Zbinden, Rev.
+Mod. Phys.74, 145 (2002).
+[2] V. Scarani, H. Bechmann-Pasquinucci, N. J. Cerf,
+M. Dušek, N. Lütkenhaus, and M. Peev, Rev. Mod.
+Phys. 81, 1301 (2009).
+[3] H.-K. Lo, M. Curty, and K. Tamaki, Nature Photonics
+8, 595 (2014).
+[4] P. W. Shor, SIAM Review41, 303 (1999).
+[5] E. Diamanti, H.-K. Lo, B. Qi, and Z. Yuan, npj Quan-
+tum Information2, 16025 (2016).
+[6] Q. Zhang, F. Xu, Y.-A. Chen, C.-Z. Peng, and J.-W.
+Pan, Opt. Express26, 24260 (2018).
+[7] H.-J. Briegel, W. Dür, J. I. Cirac, and P. Zoller, Phys.
+Rev. Lett.81, 5932 (1998).
+[8] L. M. Duan, M. D. Lukin, J. I. Cirac, and P. Zoller,
+Nature 414, 413 (2001).
+[9] N. Sangouard, C. Simon, H. de Riedmatten, and
+N. Gisin, Rev. Mod. Phys.83, 33 (2011).
+[10] M. K. Bhaskar, R. Riedinger, B. Machielse, D. S. Lev-
+onian, C. T. Nguyen, E. N. Knall, H. Park, D. En-
+glund, M. Lončar, D. D. Sukachev, and M. D. Lukin,
+Nature 580, 60 (2020).
+[11] A. Holzäpfel, J. Etesse, K. T. Kaczmarek, A. Tiranov,
+N. Gisin, and M. Afzelius, New Journal of Physics22,
+063009 (2020).
+[12] E. Bersin, M. Sutula, Y. Q. Huan, A. Suleymanzade,
+D. R. Assumpcao, Y.-C. Wei, P.-J. Stas, C. M. Knaut,
+E. N. Knall, C. Langrock, N. Sinclair, R. Murphy,
+R. Riedinger, M. Yeh, C. Xin, S. Bandyopadhyay,
+D. D. Sukachev, B. Machielse, D. S. Levonian, M. K.
+Bhaskar, S. Hamilton, H. Park, M. Lončar, M. M. Fe-
+jer, P. B. Dixon, D. R. Englund, and M. D. Lukin,
+PRX Quantum5, 010303 (2024).
+[13] C. M. Knaut, A. Suleymanzade, Y. C. Wei, D. R.
+Assumpcao, P. J. Stas, Y. Q. Huan, B. Machielse,
+E.N.Knall, M.Sutula, G.Baranes, N.Sinclair, C.De-
+Eknamkul, D. S. Levonian, M. K. Bhaskar, H. Park,
+M. Lončar, and M. D. Lukin, Nature629, 573 (2024).
+[14] C. Elliott, The darpa quantum network (2004),
+arXiv:quant-ph/0412029 [quant-ph].
+[15] M. Peev, C. Pacher, R. Alléaume, C. Barreiro,
+J. Bouda, W. Boxleitner, T. Debuisschert, E. Dia-
+9
+manti, M. Dianati, J. F. Dynes, S. Fasel, S. Fos-
+sier, M. Fürst, J.-D. Gautier, O. Gay, N. Gisin,
+P. Grangier, A. Happe, Y. Hasani, M. Hentschel,
+H. Hübel, G. Humer, T. Länger, M. Legré,
+R. Lieger, J. Lodewyck, T. Lorünser, N. Lütkenhaus,
+A. Marhold, T. Matyus, O. Maurhart, L. Monat,
+S.Nauerth, J.-B.Page, A.Poppe, E.Querasser, G.Ri-
+bordy, S. Robyr, L. Salvail, A. W. Sharpe, A. J.
+Shields, D. Stucki, M. Suda, C. Tamas, T. Themel,
+R. T. Thew, Y. Thoma, A. Treiber, P. Trinkler,
+R. Tualle-Brouri, F. Vannel, N. Walenta, H. Weier,
+H. Weinfurter, I. Wimberger, Z. L. Yuan, H. Zbinden,
+and A. Zeilinger, New Journal of Physics11, 075001
+(2009).
+[16] D. Stucki, M. Legré, F. Buntschu, B. Clausen, N. Fel-
+ber, N. Gisin, L. Henzen, P. Junod, G. Litzistorf,
+P. Monbaron, L. Monat, J.-B. Page, D. Perroud,
+G.Ribordy, A.Rochas, S.Robyr, J.Tavares, R.Thew,
+P. Trinkler, S. Ventura, R. Voirol, N. Walenta, and
+H. Zbinden, New Journal of Physics 13, 123001
+(2011).
+[17] T.-Y. Chen, H. Liang, Y. Liu, W.-Q. Cai, L. Ju, W.-
+Y. Liu, J. Wang, H. Yin, K. Chen, Z.-B. Chen, C.-Z.
+Peng, and J.-W. Pan, Opt. Express17, 6540 (2009).
+[18] T.-Y. Chen, J. Wang, H. Liang, W.-Y. Liu, Y. Liu,
+X. Jiang, Y. Wang, X. Wan, W.-Q. Cai, L. Ju, L.-K.
+Chen, L.-J. Wang, Y. Gao, K. Chen, C.-Z. Peng, Z.-B.
+Chen, and J.-W. Pan, Opt. Express18, 27217 (2010).
+[19] S. Wang, W. Chen, Z.-Q. Yin, Y. Zhang, T. Zhang,
+H.-W. Li, F.-X. Xu, Z. Zhou, Y. Yang, D.-J. Huang,
+L.-J. Zhang, F.-Y. Li, D. Liu, Y.-G. Wang, G.-C. Guo,
+and Z.-F. Han, Opt. Lett.35, 2454 (2010).
+[20] M. Sasaki, M. Fujiwara, H. Ishizuka, W. Klaus,
+K. Wakui, M. Takeoka, S. Miki, T. Yamashita,
+Z. Wang, A. Tanaka, K. Yoshino, Y. Nambu,
+S. Takahashi, A. Tajima, A. Tomita, T. Domeki,
+T. Hasegawa, Y. Sakai, H. Kobayashi, T. Asai,
+K. Shimizu, T. Tokura, T. Tsurumaru, M. Matsui,
+T. Honjo, K. Tamaki, H. Takesue, Y. Tokura, J. F.
+Dynes, A. R. Dixon, A. W. Sharpe, Z. L. Yuan, A. J.
+Shields, S. Uchikoga, M. Legré, S. Robyr, P. Trin-
+kler, L. Monat, J.-B. Page, G. Ribordy, A. Poppe,
+A. Allacher, O. Maurhart, T. Länger, M. Peev, and
+A. Zeilinger, Opt. Express19, 10387 (2011).
+[21] R. Alleaume, F. Roueff, E. Diamanti, and N. Lütken-
+haus, New Journal of Physics11, 075002 (2009).
+[22] Y. Tanizawa, R. Takahashi, and A. R. Dixon, in2016
+Eighth International Conference on Ubiquitous and
+Future Networks (ICUFN)(2016) pp. 208–214.
+[23] M. Caleffi, IEEE Access5, 22299 (2017).
+[24] H. Z. Chao Yang and J. Su, Jour-
+nal of Modern Optics 64, 2350 (2017),
+https://doi.org/10.1080/09500340.2017.1360956.
+[25] C. Ma, Y. Guo, and J. Su, in2017 IEEE 2nd Advanced
+Information Technology, Electronic and Automation
+Control Conference (IAEAC)(IEEE, 2017) pp. 2513–
+2517.
+[26] P. K. Tysowski, X. Ling, N. Lütkenhaus, and
+M. Mosca, Quantum Science and Technology 3,
+024001 (2018).
+[27] M. Mehic, M. Niemiec, S. Rass, J. Ma, M. Peev,
+A. Aguado, V. Martin, S. Schauer, A. Poppe,
+C. Pacher, and M. Voznak, ACM Comput. Surv.53,
+1 (2020).
+[28] O. Amer, W. O. Krawec, and B. Wang, in2020 IEEE
+International Conference on Quantum Computing and
+Engineering (QCE)(2020) pp. 137–147.
+[29] L. Chen, Z. Zhang, M. Zhao, K. Yu, and S. Liu, En-
+tropy 24, 10.3390/e24111519 (2022).
+[30] L.-Q. Chen, J.-Q. Chen, Q.-Y. Chen, and Y.-L. Zhao,
+Quantum Information Processing22, 10.1007/s11128-
+022-03825-x (2023).
+[31] L. Bi, M. Miao, and X. Di, Applied Sciences 13,
+10.3390/app13158690 (2023).
+[32] E. Dervisevic, A. Tankovic, E. Fazel, R. Kompella,
+P. Fazio, M. Voznak, and M. Mehic, Quantum Key
+Distribution Networks – Key Management: A Survey
+(2024), arXiv:2408.04580.
+[33] X. Tang, L. Ma, A. Mink, A. Nakassis, H. Xu, B. Her-
+shman, J. Bienfang, D. Su, R. F. Boisvert, C. Clark,
+and C. Williams, in Quantum Communications and
+Quantum Imaging IV, Vol. 6305, edited by R. E. Mey-
+ers, Y. Shih, and K. S. Deacon, International Society
+for Optics and Photonics (SPIE, 2006) p. 630506.
+[34] A. Tayduganov, V. Rodimin, E. O. Kiktenko,
+V.Kurochkin, E.Krivoshein, S.Khanenkov, V.Usova,
+L. Stefanenko, Y. Kurochkin, and A. K. Fedorov, Opt.
+Express 29, 24884 (2021).
+[35] L. Salvail, M. Peev, E. Diamanti, R. Alléaume,
+N. Lütkenhaus, and T. Länger, Journal of Computer
+Security 18, 61 (2010).
+[36] H. Zhou, K. Lv, L. Huang, and X. Ma, IEEE/ACM
+Transactions on Networking30, 1328 (2022).
+[37] A. Gaidash, G. Miroshnichenko, and A. Kozubov,
+Journal of Optical Communications and Networking
+14, 934 (2022).
+[38] N. R. Solomons, A. I. Fletcher, D. Aktas, N. Venkat-
+achalam, S. Wengerowsky, M. Lončarić, S. P. Neu-
+mann, B. Liu, Ž. Samec, M. Stipčević,et al., PRX
+quantum 3, 020311 (2022).
+[39] M. Stępniak and J. Mielczarek, Journal of Information
+Security and Applications78, 103581 (2023).
+[40] T.-Y. Chen, X. Jiang, S.-B. Tang, L. Zhou, X. Yuan,
+H. Zhou, J. Wang, Y. Liu, L.-K. Chen, W.-Y. Liu, H.-
+F. Zhang, K. Cui, H. Liang, X.-G. Li, Y. Mao, L.-J.
+Wang, S.-B. Feng, Q. Chen, Q. Zhang, L. Li, N.-L.
+Liu, C.-Z. Peng, X. Ma, Y. Zhao, and J.-W. Pan, npj
+Quantum Information7, 134 (2021).
+[41] N. S. Kirsanov, V. A. Pastushenko, A. D. Kodukhov,
+M. V. Yarovikov, A. B. Sagingalieva, D. A. Kronberg,
+M. Pflitsch, and V. M. Vinokur, Scientific Reports13,
+8756 (2023).
+[42] N. Kirsanov, V. Pastushenko, A. Kodukhov,
+A. Aliev, M. Yarovikov, D. Strizhak, I. Zarubin,
+A. Smirnov, M. Pflitsch, and V. Vinokur, Entropy26,
+10.3390/e26060437 (2024).
+[43] X.-B. Wang, Phys. Rev. Lett. 94, 10.1103/phys-
+revlett.94.230503 (2005).
+[44] X. Ma, B. Qi, Y. Zhao, and H.-K. Lo, Phys. Rev. A
+72, 012326 (2005), arXiv:quant-ph/0503005.
+[45] Z. Zhang, Q. Zhao, M. Razavi, and X. Ma, Phys. Rev.
+A 95, 012333 (2017).
+[46] A. S. Trushechkin, E. O. Kiktenko, and A. K. Fedorov,
+Phys. Rev. A96, 022316 (2017).
+[47] A. S. Trushechkin, E. O. Kiktenko, D. A. Kronberg,
+and A. K. Fedorov, Physics-Uspekhi64, 88 (2021).

@@ -1,0 +1,12 @@
+{
+  "total_instances": 4968,
+  "truncated": 0,
+  "infeasible_both": 2143,
+  "matches": 4334,
+  "mismatches": 0,
+  "mismatch_details": [],
+  "yen_median_ms": 0.11204200563952327,
+  "yen_p95_ms": 1.494472683407365,
+  "bf_median_ms": 0.011791998986154795,
+  "bf_p95_ms": 0.1331606239546088
+}

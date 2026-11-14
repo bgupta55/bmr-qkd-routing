@@ -1,0 +1,27 @@
+======================================================================
+E10: Ledger Verification and Tamper Tests
+      10000 ledgers per test type
+======================================================================
+                               Test   Expected    Accept%    Reject%   PASS
+---------------------------------------------------------------------------
+                         T0: Benign     accept    100.00%      0.00%   PASS
+                    T1: Inflate r_i     reject      0.00%    100.00%   PASS
+              T2: Replay stale cert     reject      0.00%    100.00%   PASS
+                     T3: Drop a hop     reject      0.00%    100.00%   PASS
+           T4: Insert repeated node     reject      0.00%    100.00%   PASS
+                    T5: Lower eps_i     reject      0.00%    100.00%   PASS
+                T6: Reorder entries     reject      0.00%    100.00%   PASS
+      T7: Superseded DEGRADED alarm     reject      0.00%    100.00%   PASS
+              T8: Re-signed forgery     reject      0.00%    100.00%   PASS
+
+Total time: 62910ms
+All tests passed: True
+
+--- Verification timing (per entry) ---
+  n_hops= 2: median=303.7µs, per-entry=151.8µs
+  n_hops= 4: median=607.7µs, per-entry=151.9µs
+  n_hops= 8: median=1222.6µs, per-entry=152.8µs
+  n_hops=16: median=2458.5µs, per-entry=153.7µs
+
+Saved figure: <repo>/UPLOAD/experiments/../figures/E10_ledger_tamper.png
+Saved results: <repo>/UPLOAD/experiments/../data/results/e10_ledger.json

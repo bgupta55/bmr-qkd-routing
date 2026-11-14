@@ -1,0 +1,102 @@
+{
+  "experiment": "E10",
+  "description": "Ledger verification and tamper tests (Reviewer 2 Comment 1)",
+  "n_trials_per_test": 10000,
+  "test_results": [
+    {
+      "test": "T0: Benign",
+      "expected": "accept",
+      "accept_rate": 1.0,
+      "reject_rate": 0.0,
+      "passed": true,
+      "ms": 9082.525332982186
+    },
+    {
+      "test": "T1: Inflate r_i",
+      "expected": "reject",
+      "accept_rate": 0.0,
+      "reject_rate": 1.0,
+      "passed": true,
+      "ms": 9123.48554196069
+    },
+    {
+      "test": "T2: Replay stale cert",
+      "expected": "reject",
+      "accept_rate": 0.0,
+      "reject_rate": 1.0,
+      "passed": true,
+      "ms": 9791.677083994728
+    },
+    {
+      "test": "T3: Drop a hop",
+      "expected": "reject",
+      "accept_rate": 0.0,
+      "reject_rate": 1.0,
+      "passed": true,
+      "ms": 2868.081833003089
+    },
+    {
+      "test": "T4: Insert repeated node",
+      "expected": "reject",
+      "accept_rate": 0.0,
+      "reject_rate": 1.0,
+      "passed": true,
+      "ms": 3588.290582993068
+    },
+    {
+      "test": "T5: Lower eps_i",
+      "expected": "reject",
+      "accept_rate": 0.0,
+      "reject_rate": 1.0,
+      "passed": true,
+      "ms": 9091.069208981935
+    },
+    {
+      "test": "T6: Reorder entries",
+      "expected": "reject",
+      "accept_rate": 0.0,
+      "reject_rate": 1.0,
+      "passed": true,
+      "ms": 2850.4998339922167
+    },
+    {
+      "test": "T7: Superseded DEGRADED alarm",
+      "expected": "reject",
+      "accept_rate": 0.0,
+      "reject_rate": 1.0,
+      "passed": true,
+      "ms": 9068.538874969818
+    },
+    {
+      "test": "T8: Re-signed forgery",
+      "expected": "reject",
+      "accept_rate": 0.0,
+      "reject_rate": 1.0,
+      "passed": true,
+      "ms": 7445.611458038911
+    }
+  ],
+  "all_passed": true,
+  "timing_per_entry": [
+    {
+      "n_hops": 2,
+      "median_us": 303.687498671934,
+      "per_entry_us": 151.843749335967
+    },
+    {
+      "n_hops": 4,
+      "median_us": 607.7499710954726,
+      "per_entry_us": 151.93749277386814
+    },
+    {
+      "n_hops": 8,
+      "median_us": 1222.5624814163893,
+      "per_entry_us": 152.82031017704867
+    },
+    {
+      "n_hops": 16,
+      "median_us": 2458.541508531198,
+      "per_entry_us": 153.65884428319987
+    }
+  ]
+}
