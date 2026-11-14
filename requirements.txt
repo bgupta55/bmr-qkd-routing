@@ -1,0 +1,14 @@
+# Versions used to produce the results (Python 3.14, macOS arm64). Older versions
+# of numpy/scipy/networkx/pandas/matplotlib will almost certainly work too.
+numpy>=2.0
+scipy>=1.13
+networkx>=3.3
+pandas>=2.2
+matplotlib>=3.9
+ortools>=9.10          # CP-SAT cross-check in v2 (validate_mp.py)
+pytest>=8.0
+
+# Only needed for the quantum-circuit / IBM hardware scripts
+qiskit>=2.0
+qiskit-aer>=0.17       # noisy simulation of the CHSH circuit (v1 run_all.py imports it)
+qiskit-ibm-runtime>=0.40
