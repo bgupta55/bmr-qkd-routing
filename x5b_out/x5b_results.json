@@ -1,0 +1,73 @@
+{
+ "trials": 40000,
+ "defect_free_trials": 3165,
+ "defect_free_accepted": 3165,
+ "per_defect": {
+  "D1_shared_relay": {
+   "present": 9429,
+   "accepted": 0
+  },
+  "D2_wrong_count": {
+   "present": 9725,
+   "accepted": 0
+  },
+  "D3_over_budget_one_path": {
+   "present": 9408,
+   "accepted": 0
+  },
+  "D4_stale": {
+   "present": 9489,
+   "accepted": 0
+  },
+  "D5_non_attestor": {
+   "present": 9441,
+   "accepted": 0
+  },
+  "D6_rate_below_R": {
+   "present": 9482,
+   "accepted": 0
+  },
+  "D7_other_sd": {
+   "present": 9409,
+   "accepted": 0
+  },
+  "D8_replayed_nonce": {
+   "present": 9353,
+   "accepted": 0
+  },
+  "D9_direct_in_multipath": {
+   "present": 9449,
+   "accepted": 0
+  },
+  "D10_loop": {
+   "present": 9352,
+   "accepted": 0
+  },
+  "D11_discontinuity": {
+   "present": 9544,
+   "accepted": 0
+  },
+  "D12_db_degraded": {
+   "present": 9516,
+   "accepted": 0
+  }
+ },
+ "reasons": {
+  "session: nonce mismatch (replay)": 9353,
+  "continuity": 2753,
+  "certificate signature": 2065,
+  "plan: wrong number of paths": 5477,
+  "stale": 1566,
+  "budget (per path)": 931,
+  "simplicity": 2506,
+  "session: bound to another (s,d)": 7171,
+  "db: superseded by DEGRADED in (T_i, now]": 1359,
+  "plan: paths share a relay": 1144,
+  "rate floor": 1202,
+  "plan: direct link inside a multi-path plan": 1146,
+  "db: record mismatch": 162
+ },
+ "false_accepts": 0,
+ "seconds": 108.1,
+ "seed": 20261113
+}

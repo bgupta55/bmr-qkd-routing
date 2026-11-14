@@ -1,0 +1,13 @@
+protocol,instance_class,instances,coalitions_checked,coalitions_exposed,s_computes_key,d_computes_key,external_eavesdropper_exposes,any_single_relay_exposes,never_exposed,min_expos_size_min,min_expos_size_median,thmB_violations,disagreements
+P0,path,13,1079,298,1,13,0,12,1,1,1.0,,0
+P1,path,13,1079,1079,13,13,0,12,1,1,1.0,,0
+P2,path,13,1079,1079,13,13,0,12,1,1,1.0,,0
+P2,realistic,14000,180933,180933,14000,14000,0,14000,0,1,1.0,,0
+P3,path,13,1079,1079,13,13,6,12,1,1,1.0,,0
+P4,graph_N3,12,8,2,12,12,0,2,10,1,1.0,0,0
+P4,graph_N4,112,238,50,112,112,0,24,82,1,1.0,0,0
+P4,graph_N5,1356,6612,1600,1356,1356,0,330,908,1,1.0,0,0
+P4,graph_N6,25658,246462,63256,25658,25658,0,5982,16036,1,1.0,0,0
+P4,graph_N7,734386,12340618,3406274,734386,734386,0,163606,430196,1,1.0,0,0
+P4,graph_N8,1987014,56413154,15397457,1987014,1987014,0,368295,1123078,1,2.0,0,0
+P4,realistic,28000,10026085,4742990,28000,28000,0,1028,0,1,2.0,0,0

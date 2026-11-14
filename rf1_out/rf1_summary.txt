@@ -1,0 +1,24 @@
+R-ACC        m>=2: single relay exposes key in 12/12 paths | min coalition == ceil(m/2) in 1/12 | s knows key 1/13 | d knows key 13/13 | external 0/13
+    m= 2  single-relay exposers: v1                       min coalition: 1  (corollary 1)  s/d know: 0/1
+    m= 3  single-relay exposers: v2                       min coalition: 1  (corollary 2)  s/d know: 0/1
+    m= 4  single-relay exposers: v3                       min coalition: 1  (corollary 2)  s/d know: 0/1
+    m= 5  single-relay exposers: v4                       min coalition: 1  (corollary 3)  s/d know: 0/1
+    m= 7  single-relay exposers: v6                       min coalition: 1  (corollary 4)  s/d know: 0/1
+R-ACC-REV    m>=2: single relay exposes key in 12/12 paths | min coalition == ceil(m/2) in 1/12 | s knows key 13/13 | d knows key 1/13 | external 0/13
+    m= 2  single-relay exposers: v1                       min coalition: 1  (corollary 1)  s/d know: 1/0
+    m= 3  single-relay exposers: v1                       min coalition: 1  (corollary 2)  s/d know: 1/0
+    m= 4  single-relay exposers: v1                       min coalition: 1  (corollary 2)  s/d know: 1/0
+    m= 5  single-relay exposers: v1                       min coalition: 1  (corollary 3)  s/d know: 1/0
+    m= 7  single-relay exposers: v1                       min coalition: 1  (corollary 4)  s/d know: 1/0
+R-LOC-HOP    m>=2: single relay exposes key in 12/12 paths | min coalition == ceil(m/2) in 1/12 | s knows key 1/13 | d knows key 13/13 | external 0/13
+    m= 2  single-relay exposers: v1                       min coalition: 1  (corollary 1)  s/d know: 0/1
+    m= 3  single-relay exposers: v2                       min coalition: 1  (corollary 2)  s/d know: 0/1
+    m= 4  single-relay exposers: v3                       min coalition: 1  (corollary 2)  s/d know: 0/1
+    m= 5  single-relay exposers: v4                       min coalition: 1  (corollary 3)  s/d know: 0/1
+    m= 7  single-relay exposers: v6                       min coalition: 1  (corollary 4)  s/d know: 0/1
+R-LOC-IDEAL  m>=2: single relay exposes key in 1/12 paths | min coalition == ceil(m/2) in 12/12 | s knows key 1/13 | d knows key 13/13 | external 0/13
+    m= 2  single-relay exposers: v1                       min coalition: 1  (corollary 1)  s/d know: 0/1
+    m= 3  single-relay exposers: -                        min coalition: 2  (corollary 2)  s/d know: 0/1
+    m= 4  single-relay exposers: -                        min coalition: 2  (corollary 2)  s/d know: 0/1
+    m= 5  single-relay exposers: -                        min coalition: 3  (corollary 3)  s/d know: 0/1
+    m= 7  single-relay exposers: -                        min coalition: 4  (corollary 4)  s/d know: 0/1

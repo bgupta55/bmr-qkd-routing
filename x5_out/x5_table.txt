@@ -1,0 +1,31 @@
+test                                           expected                   accepted/2000  Wilson95-upper  reasons
+T0 benign                                      accept                      2000        100.000%      {'accepted': 2000}
+T1 inflate r (plan digest)                     reject                         0         0.192%      {'session: signature/plan-digest mismatch': 2000}
+T1b inflate r + re-bind with forger key        reject                         0         0.192%      {'session: signature/plan-digest mismatch': 2000}
+T2 stale certificate                           reject                         0         0.192%      {'stale': 2000}
+T3 drop a hop                                  reject                         0         0.192%      {'continuity': 2000}
+T4 loop                                        reject                         0         0.192%      {'simplicity': 2000}
+T5 lower eps                                   reject                         0         0.192%      {'session: signature/plan-digest mismatch': 2000}
+T6 reorder                                     reject                         0         0.192%      {'continuity': 2000}
+T7 DEGRADED in (T_i,now] (late)                reject                         0         0.192%      {'db: superseded by DEGRADED in (T_i, now]': 2000}
+T7b DEGRADED in (T_i,now] (early)              reject                         0         0.192%      {'db: superseded by DEGRADED in (T_i, now]': 2000}
+T8 re-signed by non-attestor                   reject                         0         0.192%      {'certificate signature': 2000}
+T9 replay old plan+session                     reject                         0         0.192%      {'session: nonce mismatch (replay)': 2000}
+T10 session bound to another (s,d')            reject                         0         0.192%      {'session: bound to another (s,d)': 2000}
+T10b plan of another request                   reject                         0         0.192%      {'session: bound to another (s,d)': 2000}
+T11 entry swapped for another valid cert       reject                         0         0.192%      {'session: signature/plan-digest mismatch': 2000}
+T11b substitute other valid plan               reject                         0         0.192%      {'session: signature/plan-digest mismatch': 2000}
+T12 lying attestor, ledger-only                ACCEPT (documented limit)   2000        100.000%      {'accepted': 2000}
+T12-DB lying attestor, DB has audit record     reject (DB cross-check)        0         0.192%      {'db: record mismatch': 2000}
+T13 two paths share a relay                    reject                         0         0.192%      {'plan: paths share a relay': 2000}
+T14 plan with only t paths                     reject                         0         0.192%      {'plan: wrong number of paths': 2000}
+T15 one path over budget (others fine)         reject                         0         0.192%      {'budget (per path)': 2000}
+T16 plan with all constraints met              accept                      2000        100.000%      {'accepted': 2000}
+
+Timing/size per plan (µs, 1000 runs, drop 50 warm-up); macOS-26.5.1-arm64-arm-64bit-Mach-O Python 3.14.5
+  K2_m2   entries= 4 bytes=  570 | Ed25519 798.3±92.1 | HMAC 15.9±3.5
+  K2_m4   entries= 8 bytes= 1050 | Ed25519 1408.6±184.9 | HMAC 29.0±6.7
+  K2_m8   entries=16 bytes= 2020 | Ed25519 2691.0±160.3 | HMAC 58.5±12.5
+  K3_m2   entries= 6 bytes=  811 | Ed25519 1115.1±107.9 | HMAC 23.3±6.8
+  K3_m4   entries=12 bytes= 1531 | Ed25519 2040.4±146.9 | HMAC 45.5±13.4
+  K3_m8   entries=24 bytes= 2995 | Ed25519 3904.5±234.9 | HMAC 95.0±17.2

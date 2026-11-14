@@ -1,0 +1,19 @@
+{
+ "master_seed": 20261113,
+ "max_coalition": 3,
+ "fam_cap": 1000,
+ "n_rows": 2790590,
+ "seconds": 47.9,
+ "python": "3.14.5",
+ "machine": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+ "networkx": "3.6.1",
+ "quick": false,
+ "lemmaA_checks": 39741,
+ "lemmaA_violations": 0,
+ "lemmaA_runs": 952,
+ "maxflow_checks": 2714,
+ "maxflow_violations": 0,
+ "lemmaA_separators": 1605,
+ "total_disagreements": 0,
+ "total_coalitions": 79218426
+}

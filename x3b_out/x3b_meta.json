@@ -1,0 +1,10 @@
+{
+ "seed": 20261113,
+ "graphs": 50,
+ "per": 100,
+ "cells": 24,
+ "seconds": 465.5,
+ "python": "3.14.5",
+ "machine": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+ "ortools": "9.15.6755"
+}

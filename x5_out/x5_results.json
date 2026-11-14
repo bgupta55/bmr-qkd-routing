@@ -1,0 +1,349 @@
+{
+ "tests": [
+  {
+   "test": "T0 benign",
+   "expected": "accept",
+   "accepted": 2000,
+   "trials": 2000,
+   "wilson95_upper": 1.0000000000000002,
+   "reasons": {
+    "accepted": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T1 inflate r (plan digest)",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "session: signature/plan-digest mismatch": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T1b inflate r + re-bind with forger key",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "session: signature/plan-digest mismatch": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T2 stale certificate",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "stale": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T3 drop a hop",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "continuity": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T4 loop",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "simplicity": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T5 lower eps",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "session: signature/plan-digest mismatch": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T6 reorder",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "continuity": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T7 DEGRADED in (T_i,now] (late)",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "db: superseded by DEGRADED in (T_i, now]": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T7b DEGRADED in (T_i,now] (early)",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "db: superseded by DEGRADED in (T_i, now]": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T8 re-signed by non-attestor",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "certificate signature": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T9 replay old plan+session",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "session: nonce mismatch (replay)": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T10 session bound to another (s,d')",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "session: bound to another (s,d)": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T10b plan of another request",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "session: bound to another (s,d)": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T11 entry swapped for another valid cert",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "session: signature/plan-digest mismatch": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T11b substitute other valid plan",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "session: signature/plan-digest mismatch": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T12 lying attestor, ledger-only",
+   "expected": "ACCEPT (documented limit)",
+   "accepted": 2000,
+   "trials": 2000,
+   "wilson95_upper": 1.0000000000000002,
+   "reasons": {
+    "accepted": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T12-DB lying attestor, DB has audit record",
+   "expected": "reject (DB cross-check)",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "db: record mismatch": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T13 two paths share a relay",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "plan: paths share a relay": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T14 plan with only t paths",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "plan: wrong number of paths": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T15 one path over budget (others fine)",
+   "expected": "reject",
+   "accepted": 0,
+   "trials": 2000,
+   "wilson95_upper": 0.0019171176005129348,
+   "reasons": {
+    "budget (per path)": 2000
+   },
+   "as_expected": true
+  },
+  {
+   "test": "T16 plan with all constraints met",
+   "expected": "accept",
+   "accepted": 2000,
+   "trials": 2000,
+   "wilson95_upper": 1.0000000000000002,
+   "reasons": {
+    "accepted": 2000
+   },
+   "as_expected": true
+  }
+ ],
+ "ed25519": {
+  "K2_m2": {
+   "paths": 2,
+   "hops_per_path": 2,
+   "entries": 4,
+   "bytes": 570,
+   "mean_us": 798.3135391259566,
+   "sd_us": 92.07258534322334
+  },
+  "K2_m4": {
+   "paths": 2,
+   "hops_per_path": 4,
+   "entries": 8,
+   "bytes": 1050,
+   "mean_us": 1408.5543072034948,
+   "sd_us": 184.87326436183756
+  },
+  "K2_m8": {
+   "paths": 2,
+   "hops_per_path": 8,
+   "entries": 16,
+   "bytes": 2020,
+   "mean_us": 2691.0327899723166,
+   "sd_us": 160.3390543238601
+  },
+  "K3_m2": {
+   "paths": 3,
+   "hops_per_path": 2,
+   "entries": 6,
+   "bytes": 811,
+   "mean_us": 1115.0741228208828,
+   "sd_us": 107.87091449906099
+  },
+  "K3_m4": {
+   "paths": 3,
+   "hops_per_path": 4,
+   "entries": 12,
+   "bytes": 1531,
+   "mean_us": 2040.391062435351,
+   "sd_us": 146.9269711021863
+  },
+  "K3_m8": {
+   "paths": 3,
+   "hops_per_path": 8,
+   "entries": 24,
+   "bytes": 2995,
+   "mean_us": 3904.4839467265106,
+   "sd_us": 234.87671125387052
+  }
+ },
+ "hmac": {
+  "K2_m2": {
+   "paths": 2,
+   "hops_per_path": 2,
+   "entries": 4,
+   "bytes": 410,
+   "mean_us": 15.91907382182973,
+   "sd_us": 3.4588869995762135
+  },
+  "K2_m4": {
+   "paths": 2,
+   "hops_per_path": 4,
+   "entries": 8,
+   "bytes": 762,
+   "mean_us": 29.007623333630985,
+   "sd_us": 6.711327955639959
+  },
+  "K2_m8": {
+   "paths": 2,
+   "hops_per_path": 8,
+   "entries": 16,
+   "bytes": 1476,
+   "mean_us": 58.493992883565,
+   "sd_us": 12.537241079522124
+  },
+  "K3_m2": {
+   "paths": 3,
+   "hops_per_path": 2,
+   "entries": 6,
+   "bytes": 587,
+   "mean_us": 23.25449080672115,
+   "sd_us": 6.798719994907119
+  },
+  "K3_m4": {
+   "paths": 3,
+   "hops_per_path": 4,
+   "entries": 12,
+   "bytes": 1115,
+   "mean_us": 45.48048517838316,
+   "sd_us": 13.408410121683419
+  },
+  "K3_m8": {
+   "paths": 3,
+   "hops_per_path": 8,
+   "entries": 24,
+   "bytes": 2195,
+   "mean_us": 94.98828924015949,
+   "sd_us": 17.19659784936841
+  }
+ },
+ "seed": 20261113,
+ "machine": "macOS-26.5.1-arm64-arm-64bit-Mach-O",
+ "python": "3.14.5"
+}
